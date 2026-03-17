@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8"> 
+<title>Blue</title> 
+<script type="text/javascript" src="myScript.js">
+
+</script>
+<script>
+    var type=["marginTop","marginLeft"];
+var rangeN=20;
+var timeout=20; 
+
+function shake(obj,end){ 
+  var range=Math.floor(Math.random()*rangeN); 
+  var typN=Math.floor(Math.random()*type.length); 
+  obj["style"][type[typN]]=""+range+"px"; 
+  var shakeTimer=setTimeout(function(){shake(obj,end)},timeout); 
+  obj[end]=function(){clearTimeout(shakeTimer)}; 
+}  
+
+window.onload=function(){
+  var thediv=document.getElementById("eye1");
+  thediv.onmouseover=function(){
+    shake(this,'onmouseout')
+  }
+}
+
+</script>
+
+<style> 
+
+*{
+	margin : 0;
+	padding : 0;
+}
+
+body{
+background-color: black;
+}
+
+h1:hover {
+            animation: animate 0.2s linear infinite;
+        }
+        @keyframes animate {
+
+            0%,
+            25% {
+                -webkit-text-fill-color: black;
+                text-shadow: 20px 20px 20px red;
+            }
+
+            50% {
+                text-shadow: 20px -20px 20px red;
+            }
+
+            75% {
+
+                text-shadow: -20px 20px 20px red;
+            }
+
+            100% {
+                text-shadow: -20px -20px 20px red;
+            }
+        }
+
+
+#eye1{
+    position: absolute;
+    top: 80vh;
+    left: 30px;
+    height:60vh;
+    width: auto;
+    z-index: 0;
+    opacity: 1;
+}
+
+#p1people{
+    position: absolute;
+    top: 20vh;
+    right: 30px;
+    height:90vh;
+    width: auto;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+#house1{
+    position: absolute;
+    top: 1vh;
+    left: 1px;
+    height:50vh;
+    width: auto;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+#house2{
+    position: absolute;
+    top: 200vh;
+    left: 1px;
+    height:50vh;
+    width: auto;
+    z-index: -2;
+    opacity: 0.8;
+}
+
+#eye2{
+    position: absolute;
+    top: 90vh;
+    right: 100px;
+    height:50vh;
+    width: auto;
+    z-index: 0;
+    opacity: 1;
+}
+
+#eye2:hover{
+    cursor: pointer;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.bt{
+    width: 500px;
+    height:200px;
+    border:none;
+    background-color: transparent;
+}
+
+#welcometo{
+    position: absolute;
+    top: 140vh;
+    right: 50px;
+    height:90vh;
+    width: auto;
+    z-index: 1;
+    opacity: 1;
+    display: none;
+}
+
+#bauhaus1{
+    position: absolute;
+    top: 250vh;
+    right: 150px;
+    z-index: 1;
+    opacity: 1;
+    rotate: 20deg;
+    filter: blur(20px) opacity(0.5) brightness(0.8);
+}
+
+#bauhaus1:hover{
+    cursor: help;
+    transition: 0.8s;
+    filter: blur(0px) opacity(1) brightness(1);
+}
+
+#bauhaus2{
+    position: absolute;
+    top: 300vh;
+    right: 150px;
+    z-index: 1;
+    opacity: 1;
+    rotate: -20deg;
+    filter: blur(20px) opacity(0.5) brightness(0.8);
+}
+
+#bauhaus2:hover{
+    cursor: help;
+    transition: 0.8s;
+    filter: blur(0px) opacity(1) brightness(1);
+}
+
+#bauhaus3{
+    position: absolute;
+    top: 350vh;
+    right: 150px;
+    z-index: 1;
+    opacity: 1;
+    rotate: 20deg;
+    filter: blur(20px) opacity(0.5) brightness(0.8);
+}
+
+#bauhaus3:hover{
+    cursor: help;
+    transition: 0.8s;
+    filter: blur(0px) opacity(1) brightness(1);
+}
+
+
+#curtain{
+    position: absolute;
+    top:420vh;
+}
+
+#talk{
+  position: absolute;
+  top: 530vh;
+  left:470px;
+  font-family: Schnyder XL;
+  font-size: 50px;
+  background-color: brown;
+  border-radius: 50px;
+  width: 400px;
+  text-align: center;
+}
+
+#talk:hover{
+    cursor: pointer;
+    background-color: antiquewhite;
+    transition: 0.3s;
+}
+
+#fanclose{
+  position: absolute;
+  top: 480vh;
+  left:470px;
+  font-family: Schnyder XL;
+  font-size: 30px;
+  background-color: brown;
+  border-radius: 50px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+#fanclose:hover{
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: rgb(208, 183, 183);
+}
+
+#fan_alert{
+  position: absolute;
+  top: 470vh;
+  left:470px;
+  font-family: Schnyder XL;
+  font-size: 60px;
+  color: red;
+  text-align: center;
+  opacity: 0.7;
+  display: none;
+}
+
+#escape{
+  position: absolute;
+  top: 470vh;
+  width:80vw;
+  left:0;
+  right:0;
+  margin: auto;
+  border: transparent;
+  background: none;
+  filter: brightness(30%);
+  display: none;
+}
+
+#escape:hover{
+    cursor: pointer;
+    border: 10px solid #ffffff;
+    filter: brightness(100%);
+    transition: 0.1s;
+}
+
+#talk_alert{
+  position: absolute;
+  top: 520vh;
+  left:200px;
+  font-family: Schnyder XL;
+  font-size: 70px;
+  color: red;
+  text-align: center;
+  opacity: 0.7;
+  display: none;
+}
+
+.mv{
+    position : absolute;
+    top:130vh;
+	width:120vw;
+	height:100vh; 
+    z-index: -2;
+    opacity: 0.4;
+    }
+
+    .mv_2{
+    position : absolute;
+    top:225vh;
+	width:120vw;
+	height:100vh; 
+    z-index: -2;
+    opacity: 0.5;
+    }
+
+    .mv_3{
+    position : absolute;
+    top:325vh;
+	width:120vw;
+	height:100vh; 
+    z-index: -2;
+    opacity: 0.5;
+    }
+
+    .mv_4{
+    position : absolute;
+    top:425vh;
+	width:120vw;
+	height:100vh; 
+    z-index: -2;
+    opacity: 0.5;
+    }
+
+</style>
+</head>
+<body>
+<audio id="voice" src="screaming.mp3"></audio>
+
+<h1 style="font-size: 250px; color: #ffffff;font-family: Schnyder XL; ">Cafe Muller</h1>
+<div style="position:absolute; top:120vh; font-size: 20px; color: #ffffff; opacity: 0.3; z-index: -1; ">
+    Today's society is increasingly falling into the hell of homogeneity, unable to produce the experience of eros, because the premise of eros is the asymmetry and externality of being the other. No wonder Socrates is called the lover "Atropos", which means unique and difficult to be included in any category or category. The "him" I long for, the "him" who fascinates me, has nowhere to live. "He" escapes the homogeneous language association: "As Atropos, 'he' makes language tremble: for 'him', it cannot be said, cannot be said, and it is wrong to say it. Every attributive appears hypocritical and reckless. , which is both painful and embarrassing..." Today, our culture is full of contrast and comparison, and does not allow the existence of the "other" at all. We compare, classify, and standardize everything all the time, looking for "similar" for the "other" because we have lost the opportunity to experience the "other." Consumption for the “other” does not exist. Consumer society strives to eliminate the difference and consumability of the heterogeneous world of others. Compared with "difference", "difference" is a complimentary word. Everything will become uniform as an object of consumption.
+        Today, with the help of digital media, we strive to bring the distant Other as close as possible, perhaps even to zero distance. "Close distance" still means keeping a distance, but "zero distance" completely destroys this sense of distance. In this sense, "close distance" has become a "sense of distance" with a negative connotation in everyone's mind. In today's society, it is very popular to eliminate the "sense of distance" because the "sense of distance" is negative and can create tension and pressure. Zero distance thus becomes a positive, affirmative outcome. However, the negative side is often the basis for a thing to turn to the positive side and exist actively. Pure positivity lacks vitality.
+        Today's love is not just about being "feminized". Along with a positive trend in all areas of life, love has also been domesticated into a mode of consumption, without risks, without considering courage, eliminating madness and fanaticism, and avoiding any negative and negative feelings. Pain and passion are replaced by comfort and the thrill of having no negative consequences. In an era where fast-food sex, sex after a casual encounter, and stress-relieving sex are commonplace, there is no longer any negative side to sex. The lack of negative aspects has led to the withering of love today, becoming an object of consumable and calculable hedonism. People are content to pursue the comfort of those who have similar interests and give up their desire for others. What is being pursued is a comfortable, familiar feeling that eventually settles slowly into consciousness. Transcendence no longer exists in today’s love.
+        The subject of narcissistic melancholia is not a closed loop either. Since it cannot be closed, everything will flow and dissolve, so there is a lack of a solid, stable, closed self-image. It is not difficult to imagine that indecision and lack of decision-making are also symptoms of depression. The characteristic of the era of depression is that people constantly open this closed loop and remove the boundaries, causing them to lose the ability to close and close.
+</div>
+
+<video loop autoplay class="mv" src="house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_2" src="house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_3" src="house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_4" src="house_video.mp4" type="video/mp4" muted></video>
+
+
+<div id="eye1"><img src="join us.gif" alt=""></div>
+<div id="p1people"><img src="p1people.png"></div>
+<div id="house1"><img src="house1.png"></div>
+<div id="eye2" onmouseover="textapp()" onmouseleave= "textdisapp()"><img src="eye2.png"></div>
+
+<div id="welcometo" style="font-size: 60px;color: red;">WELCOME TO THE<br>EMPTY HOUSE<br>BAUHAUS</div>
+<div id="house2"><img src="house1.png"></div>
+
+<div id="bauhaus1"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus1.jpeg"></div>
+<div id="bauhaus2"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus2.jpeg"></div>
+<div id="bauhaus3"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus3.jpeg"></div>
+
+<div style="position: absolute; top:380vh; font-family: Schnyder XL; font-size: 70px; color: red;">Welcome!<br>Cafe Muller<br>Chatting room 002</div>
+
+<div id="curtain">
+    <img style="width: 1400px; height:800px;"src="curtain.png">
+</div>
+
+<div id="talkman"style="position: absolute;top:470vh; left:30px; ">
+    <img style="height:650px;"src="talkman.png">
+</div>
+
+<div id="talkwoman"style="position: absolute;top:470vh; right:30px; ">
+    <img style="height:650px;"src="talkwoman.png">
+</div>
+
+
+<div>
+    <button id="talk" onclick="changeTalk()">
+    MAKE THEM TALK.
+  </button>
+  </div>
+
+
+<div id="dialogue1" style="position: absolute; background-color:brown; color:#ffffff; top:470vh; left:30px; width:300px; font-size: 40px;font-family: Schnyder XL; text-align: center;">
+    ( Let's start. )
+</div>
+
+<div id="dialogue2" style="position: absolute; background-color:brown; color:#ffffff; top:480vh; right:30px; width:300px; font-size: 40px;font-family: Schnyder XL; text-align: center;">
+    ( Let's start )
+</div>
+
+<div id="fangif" style="position:absolute; top:440vh; left:430px; opacity: 0.8; z-index: -1;">
+    <img src="fan.gif" style="filter: grayscale(100%) contrast(100%) brightness(35%);">
+</div>
+
+<div>
+    <button id="fanclose" onclick="cannotturn()">
+    Shut the noisy fan down.
+  </button>
+  </div>
+
+<div id="fan_alert">
+    You CANNOT hide from it...!
+</div>
+
+<div id="talk_alert">
+    You can't get them TALK MORE......
+</div>
+
+  <div>
+    <button id="escape" onclick="window.location.href='3.html'">
+        <img src="escapebutton.png">
+  </button>
+  </div>
+
+</body>
+</html>
+
+<!-- 修改意见：减少留白/模糊效果那里鼠标指针cursor/风扇旋转/提示框做成视觉提示 -->
+<!-- 问题：谷歌浏览器为了避免对用户恶意骚扰已经禁止自动播放音频 -->

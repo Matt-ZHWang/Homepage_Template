@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>4</title> 
+<script>
+    function kiss(){
+        document.getElementById("wave").style.display = "block";
+        document.getElementById("door").style.content = "url('door_open.png')";
+        document.getElementById("kiss").style.content = "url('kiss_clear.png')";
+    }
+
+    function notkiss(){
+        document.getElementById("wave").style.display = "none";
+        document.getElementById("door").style.content = "url('door_close.png')";
+        document.getElementById("kiss").style.content = "url('kiss_dark.png')";
+    }
+</script>
+
+<style>
+
+#wave{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    content: url('wavy1.png') ;
+    -webkit-animation: wavetext 2s;
+    -webkit-animation-iteration-count: infinite;
+    display: none;
+    z-index: 0;
+}
+
+@keyframes wavetext {
+    0%  {content: url('wavy1.png');}
+    10%  {content: url('wavy2.png');}
+    25%  {content: url('wavy3.png');}
+    37.5%  {content: url('wavy4.png');}
+    50%  {content: url('wavy5.png');}
+    60%  {content: url('wavy4.png');}
+    75%  {content: url('wavy3.png');}
+    87.5%  {content: url('wavy2.png');}
+    100%{content: url('wavy1.png');}
+    }
+
+    /* 倒放 */
+
+*{
+	margin : 0;
+	padding : 0;
+}
+
+body{
+        background-color: black;
+    }
+
+#door{
+    position: absolute;
+	margin: auto;
+    top:40px;
+    left:280px;
+    width:400px;
+    content: url('door_close.png');
+    z-index: 1;
+}
+
+#gifs{
+    position: absolute;
+    left:0;
+    width:600px;
+    z-index: -1;
+}
+
+#gifs2{
+    position: absolute;
+    right:0;
+    width:600px;
+    z-index: -1;
+}
+
+#kiss{
+    position: absolute;
+    bottom: 20px;
+    margin: auto;
+    left: 0;
+	right: 0;
+    z-index: 1;
+    width:650px;
+    content: url('kiss_dark.png');
+
+}
+
+#title{
+    position: absolute;
+    top:10px;
+    right:0;
+    font-family: Schnyder XL;
+    font-size: 80px;
+    color:antiquewhite;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div id="door">
+    </div>
+
+    <div id="gifs" style="top:0px;">
+        <img src="gif1.gif">
+    </div>
+
+    <div id="gifs" style="top:250px;">
+        <img src="gif2.gif">
+    </div>
+
+    <div id="gifs" style="top:500px;">
+        <img src="gif3.gif">
+    </div>
+
+
+    <div id="gifs2" style="top:0px;">
+        <img src="gif1.gif">
+    </div>
+
+    <div id="gifs2" style="top:250px;">
+        <img src="gif2.gif">
+    </div>
+
+    <div id="gifs2" style="top:500px;">
+        <img src="gif3.gif">
+    </div>
+
+    <div id="kiss" onmouseover="kiss()" onmouseleave="notkiss()">
+    </div>
+
+    <div id="title">INSIDE<br>OR<br>OUTSIDE?</div>
+
+    <div id="wave"></div>
+
+</body>
+</html>
+
+<!-- 修改意见：关键帧切分，倒放 -->

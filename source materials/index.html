@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <style>
+
+audio{
+         display: none;
+     }
+
+    body{
+        background-image: url('bgfirst.png');
+        background-size: cover;
+    }
+
+#gif_1{
+  position: absolute;
+    top: 50vh;
+    left: 930px;
+    height:20vh;
+    width: auto;
+    z-index: -2;
+    border-radius:200px;
+    opacity: 0.5;
+}
+
+#gif_2{
+  position: absolute;
+    top: 0vh;
+    left: 930px;
+    height:20vh;
+    width: auto;
+    z-index: -2;
+    border-radius:200px;
+    opacity: 0.5;
+}
+
+#changetext{
+  top: 100vh; left: 0px;
+  font-family: Schnyder XL;
+  font-size: 50px;
+  background-color: brown;
+  border-radius: 50px;
+  width: 300px;
+  text-align: center;
+}
+
+#changetext:hover{
+  cursor: pointer;
+  width: 400px;
+  background-color: rgb(201, 172, 172);
+  transition: 0.3s;
+}
+
+#hug{
+  position: absolute;
+    top: 30vh;
+    left: 800px;
+    width: 150px;
+  font-family: Schnyder XL;
+  font-size: 150px;
+  color: brown;
+}
+
+
+#enter{
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  top: 75vh;
+  right: 10px;
+  opacity: 0.6;
+}
+
+#enter:hover{
+  opacity: 1;
+  content: url('enterbutton2.png');
+  transition: 0.3s;
+}
+
+.shaky{
+  font-size: 60px;
+  filter: url(#displacement-text-filter);
+}
+
+.shaky2{
+  font-size: 60px;
+  filter: url(#displacement-text-filter2);
+}
+
+</style>
+
+<head>
+  <!-- <script type="text/javascript" src="myScript.js">
+  </script> -->
+</head>
+<body>
+  <script type="text/javascript" src="myScript.js">
+  </script>
+  <script type="text/javascript" id="c_n_script" src="mousemove.js" color="black" opacity="1" count="300" zindex="-1">
+  </script>
+
+<div class="shaky" style="font-family: Schnyder XL; font-size: 50px; ">Welcome to Cafe Muller</div>
+
+<svg width="0" height="0">
+  <filter id="displacement-text-filter">
+  
+    <!--定义feTurbulence滤镜-->
+    <feTurbulence baseFrequency="0.02" seed="0">
+    
+     <!--这是svg动画的定义方式，通过动画不断改变seed的值，形成抖动效果-->
+      <animate attributeName="seed"
+      dur="0.3s" keyTimes="0;0.5;1" values="1;2;3"
+      repeatCount="indefinite" ></animate>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="10" /> 
+  </filter>
+</svg>
+
+<svg width="0" height="0">
+  <filter id="displacement-text-filter2">
+  
+    <!--定义feTurbulence222滤镜-->
+    <feTurbulence baseFrequency="0.02" seed="0">
+
+      <animate attributeName="seed"
+      dur="0.3s" keyTimes="0;0.5;1" values="1;5;10"
+      repeatCount="indefinite" ></animate>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="20" /> 
+  </filter>
+</svg>
+
+<div class="shaky"style="font-family: Schnyder XL; font-size: 60px; ">Combine all <span style="font-size: 80px; color: brown;">discrete individuals</span> together:</div>
+
+<div id="allred">
+  <img src="bg1.png" style="display: none;">
+</div>
+
+
+<div><img src="eye.gif"></div>
+
+<div style="font-size: 30px; opacity: 0.3;">Woman eye watching<br> Talks to woman<br>
+  The man and woman were silent<br>
+  Open space<br>
+  Serious architecture<br>
+  Deconstructing the subject<br>
+  Nervous words</div>
+
+<div id="gif_1"><img src="gif_1.gif" style="height:50vh;"></div>
+<div id="gif_2"><img src="gif_2.gif" style="height:50vh;"></div>
+
+<div style="position:absolute;left:200px;top:500px;z-index: -2;">
+    <img src="button.png" style="width: 600px;height: auto; opacity: 0.8;">
+
+</div>
+
+<div>
+  <button id="changetext" onclick="changeText()">
+  CLICK TO
+</button>
+</div>
+
+<div class="shaky2" id="hug">hug me.</div>
+
+<div>
+  <button onclick="window.location.href='2.html'">
+    <img id="enter" src="enterbutton.png">
+  </a>
+</div>
+
+<!-- <audio autoplay="autoplay" loop="loop" preload="auto"
+            src="bgmusic1.mp3">       
+</audio> -->
+
+
+  
+
+</body>
+
+</html>
+
+<!-- 修改意见：背景音乐 -->

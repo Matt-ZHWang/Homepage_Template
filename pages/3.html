@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+    content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width" />
+  <title>拖动效果</title>
+
+  <!-- 引入element样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- 引入element组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <!-- 引入vue -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+
+  <style type="text/css">
+    /* #call_state_marked{
+      position: fixed;
+      top: 50px;
+      left: 100px;
+      z-index: 9;
+      color: #f00;
+      background: #fff;
+      font-size: 16px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: -3px 0px 6px 0px #a9a9a980, 3px 0px 6px 0px #a9a9a980;
+      border-radius: 4px;
+      
+    }
+    #call_state_marked span:nth-child(1) {
+      font-size: 20px;
+      font-weight: 600;
+    } */
+
+    body{
+        background-color: black;
+    }
+
+    #bbb{
+        position:fixed;
+        top: 50px;
+      right: 100px;
+      z-index: 9;
+      width:200px;
+      content: url('talkwoman_drag.png');
+      cursor: move;
+    }
+
+
+    #house{
+    position:fixed;
+    bottom: 1px;
+    left: 80px;
+    width:500px;
+    z-index: 0;
+    content: url('judge_house.png');
+    }
+
+    #house2{
+    position:fixed;
+    bottom: 1px;
+    left: 1px;
+    width:600px;
+    height:800px;
+    z-index: -1;
+    content: url('house2.png');
+    opacity: 0.5;
+    }
+
+    #ruin{
+    position:fixed;
+    bottom: 70px;
+    right: 1px;
+    width:800px;
+    z-index: 0;
+    content: url('ruin.png');
+    }
+
+    .mv1{
+    position : absolute;
+	width:120vw;
+	height:100vh; 
+    z-index: -1;
+    opacity: 0.4;
+    }
+
+    #ruinplay{
+    position:fixed;
+    bottom: 60px;
+    right: 1px;
+    width:500px;
+    z-index: 0;
+    -webkit-animation: ruinPlay 5s;
+    -webkit-animation-iteration-count: infinite;
+    display: none;
+    }
+
+
+    @keyframes ruinPlay {
+    0%  {content: url('heart.png');}
+    12.5%  {content: url('heart_broken.png');}
+    25%  {content: url('face.png');}
+    37.5% {content: url('face_broken.png');}
+    50%  {content: url('build.png');}
+    62.5% {content: url('build_broken.png');}
+    75%  {content: url('lover.png');}
+    87.5% {content: url('lover_broken.png');}
+    100%{content: url('heart.png');}
+    }
+
+    #escapebutton{
+        position: absolute;
+        width:10vw;
+        height:100vh;
+        background-color: red;
+        text-align: center;
+        font-size: 80px;
+        opacity: 0.7;
+        /* display: none; */
+    }
+
+    #escapebutton:hover{
+        opacity: 1;
+        transition: 0.2s;
+    }
+
+
+    *{
+	margin : 0;
+	padding : 0;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+<video loop autoplay class="mv1" src="vid.mp4" type="video/mp4" muted></video>
+
+<div style="position: absolute; bottom:0px; opacity:0.9;height: 200px; z-index: 1;">
+  <img src="wide.png">
+</div>
+  <div id="bbb" @mousedown="handleMouseDown" @mouseup="handleMouseUp">
+  </div>
+
+  <div id="ruinplay"></div>
+
+  <div id="house"></div>
+  <div id="house2"></div>
+  <div id="ruin"></div>
+
+  <div>
+    <button id="escapebutton" onmouseover="forlover()" onmouseleave="res()"  onclick="gotopage()">
+    BACK<br>INDOOR.
+  </button>
+  </div>
+
+  <div id="allruined" style="position: absolute; right:1px; top:100px; display:none; font-family: Helvetica; font-size: 80px; color:red">ALL RUINED.</div>
+
+
+
+  <script type="text/javascript" src="game.js">
+
+  </script>
+</body>
+
+</html>
+
+<!-- 修改意见：废墟重新换图/恐怖的音效/换左侧button（？不确定 -->
