@@ -5,7 +5,7 @@
 
 <meta charset="utf-8"> 
 <title>Blue</title> 
-<script type="text/javascript" src="myScript.js">
+<script type="text/javascript" src="../scripts/myScript.js">
 
 </script>
 <script>
@@ -314,7 +314,7 @@ h1:hover {
 </style>
 </head>
 <body>
-<audio id="voice" src="screaming.mp3"></audio>
+<audio id="voice" src="../source materials/screaming.mp3"></audio>
 
 <h1 style="font-size: 250px; color: #ffffff;font-family: Schnyder XL; ">Cafe Muller</h1>
 <div style="position:absolute; top:120vh; font-size: 20px; color: #ffffff; opacity: 0.3; z-index: -1; ">
@@ -324,76 +324,41 @@ h1:hover {
         The subject of narcissistic melancholia is not a closed loop either. Since it cannot be closed, everything will flow and dissolve, so there is a lack of a solid, stable, closed self-image. It is not difficult to imagine that indecision and lack of decision-making are also symptoms of depression. The characteristic of the era of depression is that people constantly open this closed loop and remove the boundaries, causing them to lose the ability to close and close.
 </div>
 
-<video loop autoplay class="mv" src="house_video.mp4" type="video/mp4" muted></video>
-<video loop autoplay class="mv_2" src="house_video.mp4" type="video/mp4" muted></video>
-<video loop autoplay class="mv_3" src="house_video.mp4" type="video/mp4" muted></video>
-<video loop autoplay class="mv_4" src="house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv" src="../source materials/house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_2" src="../source materials/house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_3" src="../source materials/house_video.mp4" type="video/mp4" muted></video>
+<video loop autoplay class="mv_4" src="../source materials/house_video.mp4" type="video/mp4" muted></video>
 
+<div id="eye1"><img src="../source materials/join us.gif" alt=""></div>
+<div id="p1people"><img src="../source materials/p1people.png"></div>
+<div id="house1"><img src="../source materials/house1.png"></div>
+<div id="eye2" onmouseover="textapp()" onmouseleave="textdisapp()"><img src="../source materials/eye2.png"></div>
 
-<div id="eye1"><img src="join us.gif" alt=""></div>
-<div id="p1people"><img src="p1people.png"></div>
-<div id="house1"><img src="house1.png"></div>
-<div id="eye2" onmouseover="textapp()" onmouseleave= "textdisapp()"><img src="eye2.png"></div>
+<div id="house2"><img src="../source materials/house1.png"></div>
 
-<div id="welcometo" style="font-size: 60px;color: red;">WELCOME TO THE<br>EMPTY HOUSE<br>BAUHAUS</div>
-<div id="house2"><img src="house1.png"></div>
-
-<div id="bauhaus1"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus1.jpeg"></div>
-<div id="bauhaus2"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus2.jpeg"></div>
-<div id="bauhaus3"><img style="width:350px; border-radius: 20% 10% 5% 15%;"src="bauhaus3.jpeg"></div>
-
-<div style="position: absolute; top:380vh; font-family: Schnyder XL; font-size: 70px; color: red;">Welcome!<br>Cafe Muller<br>Chatting room 002</div>
+<div id="bauhaus1"><img style="width:350px; border-radius: 20% 10% 5% 15%;" src="../source materials/bauhaus1.jpeg"></div>
+<div id="bauhaus2"><img style="width:350px; border-radius: 20% 10% 5% 15%;" src="../source materials/bauhaus2.jpeg"></div>
+<div id="bauhaus3"><img style="width:350px; border-radius: 20% 10% 5% 15%;" src="../source materials/bauhaus3.jpeg"></div>
 
 <div id="curtain">
-    <img style="width: 1400px; height:800px;"src="curtain.png">
+    <img style="width: 1400px; height:800px;" src="../source materials/curtain.png">
 </div>
 
-<div id="talkman"style="position: absolute;top:470vh; left:30px; ">
-    <img style="height:650px;"src="talkman.png">
+<div id="talkman" style="position: absolute;top:470vh; left:30px;">
+    <img style="height:650px;" src="../source materials/talkman.png">
 </div>
 
-<div id="talkwoman"style="position: absolute;top:470vh; right:30px; ">
-    <img style="height:650px;"src="talkwoman.png">
-</div>
-
-
-<div>
-    <button id="talk" onclick="changeTalk()">
-    MAKE THEM TALK.
-  </button>
-  </div>
-
-
-<div id="dialogue1" style="position: absolute; background-color:brown; color:#ffffff; top:470vh; left:30px; width:300px; font-size: 40px;font-family: Schnyder XL; text-align: center;">
-    ( Let's start. )
-</div>
-
-<div id="dialogue2" style="position: absolute; background-color:brown; color:#ffffff; top:480vh; right:30px; width:300px; font-size: 40px;font-family: Schnyder XL; text-align: center;">
-    ( Let's start )
+<div id="talkwoman" style="position: absolute;top:470vh; right:30px;">
+    <img style="height:650px;" src="../source materials/talkwoman.png">
 </div>
 
 <div id="fangif" style="position:absolute; top:440vh; left:430px; opacity: 0.8; z-index: -1;">
-    <img src="fan.gif" style="filter: grayscale(100%) contrast(100%) brightness(35%);">
+    <img src="../source materials/fan.gif" style="filter: grayscale(100%) contrast(100%) brightness(35%);">
 </div>
 
-<div>
-    <button id="fanclose" onclick="cannotturn()">
-    Shut the noisy fan down.
-  </button>
-  </div>
-
-<div id="fan_alert">
-    You CANNOT hide from it...!
-</div>
-
-<div id="talk_alert">
-    You can't get them TALK MORE......
-</div>
-
-  <div>
-    <button id="escape" onclick="window.location.href='3.html'">
-        <img src="escapebutton.png">
-  </button>
+<button id="escape" onclick="window.location.href='3.html'">
+    <img src="../source materials/escapebutton.png">
+</button>
   </div>
 
 </body>
