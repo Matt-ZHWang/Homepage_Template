@@ -11,7 +11,7 @@
   <meta property="og:title" content="High-redshift Black Holes and AGNs | Zihao Wang">
   <meta property="og:description" content="Research projects on Little Red Dots, early black-hole growth, AGN accretion histories, and simulations.">
   <meta property="og:url" content="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-black-holes-agns.html">
-  <meta property="og:image" content="https://zihaowang-kiaa.github.io/personal-homepage/source%20materials/bias_cover.png">
+  <meta property="og:image" content="https://zihaowang-kiaa.github.io/personal-homepage/source%20materials/bh-star-evolution-axis-aligned-thick-envelope-v5.png">
   <link rel="icon" href="data:,">
   <style>
     :root {
@@ -313,8 +313,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.42;
-      filter: grayscale(100%) contrast(1.34) brightness(0.62);
+      opacity: 1;
+      filter: contrast(1.1) brightness(0.9) saturate(0.92);
     }
 
     .stage-scene::after {
@@ -620,7 +620,7 @@
 
     .simulation-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 28px;
     }
 
@@ -830,7 +830,7 @@
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="kicker">Project 01 / Research area</p>
+          <p class="kicker">Project 01/High-redshift AGN</p>
           <h1>High-redshift Black Holes and AGNs</h1>
           <p class="subtitle">
             My work in this area is organized around two parallel projects: the life of Little Red Dots, and the accretion histories of AGNs in radiation-hydrodynamics simulations.
@@ -849,11 +849,7 @@
         </div>
 
         <div class="stage-scene" aria-hidden="true">
-          <video src="../source materials/vid.mp4" autoplay loop muted playsinline></video>
-          <img class="stage-house" src="../source materials/judge_house.png" alt="">
-          <img class="stage-ruin" src="../source materials/ruin.png" alt="">
-          <img class="stage-wide" src="../source materials/wide.png" alt="">
-          <img class="stage-person" src="../source materials/talkwoman_drag.png" alt="">
+          <video src="../source materials/bh-star-to-normal-agn-45s-fast-rotation-bloodred-60fps-v5.mp4" poster="../source materials/bh-star-evolution-axis-aligned-thick-envelope-v5.png" autoplay loop muted playsinline preload="metadata"></video>
         </div>
       </div>
 
@@ -888,7 +884,7 @@
             <p class="eyebrow">Project 2</p>
             <h3>AGN accretion histories in simulations.</h3>
             <p>
-              A simulation-based program for connecting SMBH accretion histories to proximity zones, host-galaxy growth, halo assembly, and the large-scale environment.
+              A simulation-based program connecting SMBH accretion histories to hydrogen and helium proximity zones and the evolving intergalactic medium.
             </p>
             <a class="source-link" href="#agn-histories">View project</a>
           </article>
@@ -962,7 +958,7 @@
             <p class="eyebrow">Project 2 / Tracking AGN accretion history in radiation-hydrodynamics simulations</p>
             <h2>How do SMBHs grow, flicker, and affect the surrounding Universe?</h2>
             <p>
-              The growth of SMBHs is governed by their accretion histories. This project uses realistic cosmological simulations to connect AGN fueling, halo assembly, galaxy growth, and environmental observables, especially proximity zones during and after the Epoch of Reionization.
+              The growth of SMBHs is governed by their accretion histories. This project uses realistic cosmological simulations to connect AGN variability and lifetime to hydrogen and helium proximity-zone observables during and after the Epoch of Reionization.
             </p>
           </div>
           <span class="status-chip">Developing</span>
@@ -984,20 +980,6 @@
             </ul>
           </article>
 
-          <article class="sim-card">
-            <p class="eyebrow">Assembly and variability</p>
-            <h3>Connecting AGN accretion histories to halos, galaxies, and large-scale environment</h3>
-            <p class="authors">Author list: <strong>Zihao Wang</strong>, Xuejian Shen</p>
-            <p>
-              SMBH accretion is stochastic across many timescales. This project characterizes individual black-hole growth tracks and links AGN activity to halo assembly, galaxy growth, and the surrounding large-scale environment.
-            </p>
-            <ul>
-              <li>Quantifies variability, burstiness, duty cycles, and characteristic timescales using tools such as power spectral density analysis.</li>
-              <li>Studies how these properties depend on black-hole mass, Eddington ratio, host-galaxy properties, and redshift.</li>
-              <li>Examines the roles of halo growth, mergers, gas inflows, and starbursts in triggering accretion events.</li>
-              <li>Builds a statistical framework for interpreting observed variability and SMBH growth at high redshift.</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
