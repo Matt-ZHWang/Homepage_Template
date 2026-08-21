@@ -72,7 +72,7 @@ Keywords: BH envelope; hydrostatic model; observable predictions
 
 **Main Project 2: Tracking AGN accretion histories in radiation-hydrodynamics simulations**
 
-The growth of supermassive black holes (SMBHs) is fundamentally governed by their accretion histories. Yet the physical processes that trigger, sustain, and quench AGN activity, and their connection to halo assembly, galaxy growth, and the surrounding large-scale environment, remain poorly understood, particularly in the high-redshift Universe. On the observational side, AGN proximity zones during the Epoch of Reionization provide one of the few direct probes of recent SMBH accretion histories through the response of the surrounding intergalactic medium (IGM). However, interpreting these observations is challenging because proximity-zone sizes depend not only on the intrinsic accretion history of the AGN, but also on AGN variability and lifetime, ionizing radiation from neighboring galaxies and AGN, and line-of-sight density fluctuations. Bridging the physics that governs AGN fueling with the observational signatures encoded in proximity zones therefore requires realistic cosmological simulations that simultaneously capture SMBH growth and the evolving cosmic environment.
+The growth of supermassive black holes (SMBHs) is fundamentally governed by their accretion histories. AGN proximity zones during the Epoch of Reionization provide one of the few direct probes of recent SMBH accretion histories through the response of the surrounding intergalactic medium (IGM). However, interpreting these observations is challenging because proximity-zone sizes depend not only on the intrinsic accretion history of the AGN, but also on AGN variability and lifetime, ionizing radiation from neighboring galaxies and AGN, and line-of-sight density fluctuations. Bridging SMBH growth with the observational signatures encoded in proximity zones therefore requires realistic cosmological simulations that capture both AGN variability and the evolving cosmic environment.
 
 **Work 1. Connecting AGN accretion histories to hydrogen and helium proximity zones**
 
@@ -85,17 +85,3 @@ AGN proximity zones provide a direct probe of both the ionization state of the I
 We're using the LUMINA simulation to study AGN proximity zones of hydrogen at z ~ 6-7 and helium at z ~ 3-4. We will measure HI and HeIII proximity-zone sizes around simulated AGN and connect them to the instantaneous luminosity, accretion history, and lifetime of the central SMBH. In particular, we will follow the time-dependent evolution of ionization fronts to test how long proximity zones retain memory of previous AGN activity and whether bursty and continuous accretion histories leave distinguishable signatures. We will also quantify how neighboring galaxies, AGN, large-scale environment, and line-of-sight density fluctuations affect the measured proximity-zone size, thereby assessing how reliably observed proximity zones can be interpreted as tracers of SMBH growth.
 
 By connecting proximity-zone measurements to realistic SMBH growth histories and environments, this project will provide a physically motivated framework for interpreting current and future observations, and help establish AGN proximity zones as a powerful probe of both black-hole evolution and the topology of cosmic reionization.
-
-**Work 2. Connecting AGN accretion histories to halo assembly, galaxy growth, and large-scale environment**
-
-Cover: nan
-
-Key authors: Zihao Wang, Xuejian Shen
-
-The growth of SMBHs is highly stochastic, exhibiting variability over a wide range of timescales. While AGN activity is ultimately fueled by gas accretion, the physical mechanisms that trigger, regulate, and quench black-hole growth remain poorly understood, particularly in the high-redshift Universe. Understanding how SMBH accretion histories are linked to host galaxy and large-scale structure formation is essential for connecting AGN demographics, feedback, and cosmic evolution.
-
-We're using the LUMINA simulation to systematically characterize SMBH accretion histories across cosmic time. By analyzing individual black-hole growth tracks, we will quantify the evolution of AGN variability, burstiness, duty cycles, and characteristic timescales using statistical tools such as power spectral density (PSD) analysis. We will investigate how these properties depend on black-hole mass, Eddington ratio, host-galaxy properties, and redshift.
-
-A primary goal of this project is to identify the physical drivers of AGN activity. We will connect black-hole accretion episodes to the assembly histories of their host halos, the growth and star-formation histories of their host galaxies, and the evolution of their surrounding large-scale environments. In particular, we will examine the roles of halo growth, mergers, gas inflows, and starbursts in triggering accretion events, and determine how these connections evolve during the Epoch of Reionization.
-
-By linking SMBH variability to galaxy assembly and cosmic structure formation in a self-consistent cosmological simulation, this project will provide new insights into what drives AGN activity and establish a statistical framework for interpreting the observed variability and growth of supermassive black holes.
