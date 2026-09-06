@@ -27,6 +27,8 @@ Use atmosphere to support navigation rather than conceal it. Drag interactions o
 
 Published images live under `assets/images/`, organized as `portrait/`, `collage/`, `research/`, `journal/`, and `albums/`. Published video clips live under `assets/videos/`. The previous `source materials/` paths are superseded by the entries in `docs/asset-map.json`.
 
+The LRD hero uses `assets/videos/bh-star-to-agn-realistic-45s.mp4`, copied unchanged from the final 45-second, 1920 × 1080, 60 fps render in `output/bh_star_to_agn_realistic/`. Its matching still is `assets/images/research/bh-star-to-agn-realistic-poster.png`. The 20-second accelerated variant remains local. The movie is an illustrative 3-D rendering, not a calibrated hydrodynamic simulation.
+
 The `album_previews` mapping pairs each original in `albums/` with its optimized WebP preview in `assets/images/albums/`. Keep the originals and the mapping: previews are for efficient browsing, while original links preserve access to the full photograph. Keep album and photograph order intact. Album order is Sri Lanka, USA, Malaysia & Singapore, Tibet, Qinhuangdao, Haikou, and Experimental.
 
 The current CV is `docs/cv/Zihao_2026.pdf`. Sources and supporting files live under `docs/cv/source/`. The root `Zihao_2026.pdf` is a compatibility copy for existing bookmarks and must remain synchronized when the CV changes.

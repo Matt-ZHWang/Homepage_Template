@@ -1,5 +1,7 @@
 {
   "media": {
+    "output/bh_star_to_agn_realistic/bh-star-to-normal-agn-realistic-45s-1080p-60fps.mp4": "assets/videos/bh-star-to-agn-realistic-45s.mp4",
+    "output/bh_star_to_agn_realistic/poster.png": "assets/images/research/bh-star-to-agn-realistic-poster.png",
     "source materials/judge_ruin_after.png": "assets/images/collage/judge-ruin-after.webp",
     "source materials/bauhaus2.jpeg": "assets/images/collage/bauhaus2.webp",
     "source materials/clumps.png": "assets/images/research/clumps.webp",
