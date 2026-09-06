@@ -23,6 +23,8 @@ Use atmosphere to support navigation rather than conceal it. Drag interactions o
 
 `assets/js/site.js` manages ambient-video motion preferences, visibility-based pausing, and explicit playback control. `home.js` owns the interactive room stage; `research.js` owns project navigation and external-link behavior; `posts.js` owns section navigation and the photograph viewer. Load shared behavior before page-specific behavior, using deferred scripts.
 
+`assets/js/background-lines.js` preserves the homepage's mouse-responsive particle network, adapted from the original MIT-licensed canvas-nest effect. Keep it below portrait and text layers, with its own pause control, reduced-motion support, and no pointer-event interception. This interaction is part of the user's preferred design and should not be removed during visual simplification.
+
 ## Assets and preservation
 
 Published images live under `assets/images/`, organized as `portrait/`, `collage/`, `research/`, `journal/`, and `albums/`. Published video clips live under `assets/videos/`. The previous `source materials/` paths are superseded by the entries in `docs/asset-map.json`.

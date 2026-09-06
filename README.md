@@ -12,7 +12,7 @@ Live site: [Zihao Wang](https://zihaowang-kiaa.github.io/personal-homepage/)
 - `pages/artificial-intelligence-astronomy.html` - project page for machine learning methods in observational astronomy.
 - `pages/posts.html` - posts, photography albums, lecture notes, and side collections.
 - `assets/css/` - shared accessibility baseline (`site.css`) and page styling (`home.css`, `research.css`, `posts.css`).
-- `assets/js/` - shared video/motion preferences (`site.js`), homepage room interactions (`home.js`), research navigation (`research.js`), and the photo viewer (`posts.js`).
+- `assets/js/` - shared video/motion preferences (`site.js`), homepage room interactions (`home.js`), mouse-responsive background lines (`background-lines.js`), research navigation (`research.js`), and the photo viewer (`posts.js`).
 - `assets/images/` - images grouped into `portrait/`, `collage/`, `research/`, `journal/`, and `albums/`. Most use optimized WebP; the portrait retains its unmodified original PNG.
 - `assets/videos/` - published simulation videos.
 - `albums/` - original-resolution photographs; the gallery uses compressed previews from `assets/images/albums/` and retains links to these originals.
