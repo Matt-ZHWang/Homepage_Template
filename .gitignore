@@ -20,3 +20,12 @@ venv/
 env/
 
 .ipynb_checkpoints/
+
+# Local originals, historical experiments and generated previews (never discarded).
+archive/
+output/
+docs/cv/source/*.aux
+docs/cv/source/*.log
+docs/cv/source/*.out
+docs/cv/source/*.fls
+docs/cv/source/*.fdb_latexmk

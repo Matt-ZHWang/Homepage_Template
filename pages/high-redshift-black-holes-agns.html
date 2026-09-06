@@ -1,1003 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>High-redshift Black Holes and AGNs | Zihao Wang</title>
-  <meta name="description" content="Research project page of Zihao Wang on high-redshift black holes, AGNs, Little Red Dots, halo assembly bias, black-hole envelopes, and AGN accretion histories in simulations.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-black-holes-agns.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="High-redshift Black Holes and AGNs | Zihao Wang">
-  <meta property="og:description" content="Research projects on Little Red Dots, early black-hole growth, AGN accretion histories, and simulations.">
-  <meta property="og:url" content="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-black-holes-agns.html">
-  <meta property="og:image" content="https://zihaowang-kiaa.github.io/personal-homepage/source%20materials/bh-star-evolution-continuous-envelope-poster-v8.png">
-  <link rel="icon" href="data:,">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #030303;
-      --ink: #f6f0e8;
-      --muted: #b9c0c5;
-      --dim: #777d83;
-      --line: rgba(246, 240, 232, 0.19);
-      --red: #e3352a;
-      --cyan: #8ccedf;
-      --gold: #d7b557;
-      --paper: rgba(8, 8, 8, 0.84);
-      --deep: rgba(0, 0, 0, 0.9);
-      --max: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      background: var(--bg);
-      font-family: Inter, Helvetica, Arial, sans-serif;
-      line-height: 1.72;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.48) 48%, rgba(0, 0, 0, 0.92)),
-        url("../source materials/bg01.jpeg");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.28;
-      z-index: -3;
-      pointer-events: none;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.74), transparent 78%);
-      z-index: -2;
-      pointer-events: none;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    summary:focus-visible {
-      outline: 2px solid var(--cyan);
-      outline-offset: 4px;
-    }
-
-    ::selection {
-      color: #000;
-      background: var(--cyan);
-    }
-
-    .back-link,
-    .project-menu {
-      position: fixed;
-      top: 18px;
-      z-index: 40;
-    }
-
-    .back-link {
-      left: 24px;
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      color: var(--muted);
-      border-bottom: 2px solid var(--red);
-      font-weight: 900;
-    }
-
-    .back-link:hover,
-    .back-link:focus-visible {
-      color: var(--cyan);
-    }
-
-    .project-menu {
-      right: 24px;
-      width: min(330px, calc(100vw - 48px));
-    }
-
-    .project-menu summary {
-      min-height: 42px;
-      padding: 8px 14px;
-      list-style: none;
-      cursor: pointer;
-      border: 1px solid var(--line);
-      background: rgba(3, 3, 3, 0.78);
-      backdrop-filter: blur(14px);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .project-menu summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .project-menu summary::after {
-      content: "+";
-      float: right;
-      color: var(--red);
-    }
-
-    .project-menu[open] summary::after {
-      content: "-";
-    }
-
-    .project-options {
-      margin-top: 8px;
-      border: 1px solid var(--line);
-      background: rgba(3, 3, 3, 0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.46);
-    }
-
-    .project-options a,
-    .project-options span {
-      display: grid;
-      gap: 2px;
-      padding: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .project-options a:first-child,
-    .project-options span:first-child {
-      border-top: 0;
-    }
-
-    .project-options a:hover,
-    .project-options a:focus-visible {
-      color: var(--ink);
-      background: rgba(227, 53, 42, 0.16);
-    }
-
-    .project-options small {
-      color: var(--dim);
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 0;
-    }
-
-    .project-options .active {
-      color: var(--ink);
-    }
-
-    .project-options .placeholder {
-      opacity: 0.62;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.06;
-      letter-spacing: 0;
-    }
-
-    .hero {
-      min-height: 100svh;
-      padding: 116px 36px 90px;
-      display: grid;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(3, 3, 3, 0.96), transparent 42%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-inner,
-    .section-inner {
-      width: min(var(--max), 100%);
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.82fr);
-      gap: 72px;
-      align-items: center;
-    }
-
-    .kicker,
-    .eyebrow {
-      margin: 0;
-      color: var(--cyan);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    h1 {
-      margin: 18px 0 0;
-      font-size: 5.15rem;
-      filter: url(#text-waver);
-    }
-
-    .subtitle {
-      margin: 28px 0 0;
-      color: var(--muted);
-      font-size: 1.13rem;
-      line-height: 1.76;
-      max-width: 760px;
-    }
-
-    .advisor-line {
-      margin: 20px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.76;
-      max-width: 760px;
-    }
-
-    .advisor-line a,
-    .inline-link {
-      color: var(--ink);
-      border-bottom: 2px solid var(--red);
-      font-weight: 850;
-    }
-
-    .advisor-line a:hover,
-    .inline-link:hover,
-    .advisor-line a:focus-visible,
-    .inline-link:focus-visible {
-      color: var(--cyan);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .text-link {
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      color: var(--ink);
-      border-bottom: 2px solid var(--red);
-      font-weight: 900;
-    }
-
-    .text-link:hover,
-    .text-link:focus-visible {
-      color: var(--cyan);
-    }
-
-    .stage-scene {
-      position: relative;
-      min-height: 480px;
-      border: 1px solid var(--line);
-      background: var(--deep);
-      overflow: hidden;
-      box-shadow: 0 26px 90px rgba(0, 0, 0, 0.56);
-    }
-
-    .stage-scene video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 1;
-      filter: contrast(1.1) brightness(0.9) saturate(0.92);
-    }
-
-    .stage-scene::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.86)),
-        linear-gradient(90deg, transparent, rgba(227, 53, 42, 0.08));
-      pointer-events: none;
-    }
-
-    .stage-house,
-    .stage-ruin,
-    .stage-wide,
-    .stage-person {
-      position: absolute;
-      display: block;
-      user-select: none;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .stage-house {
-      left: 7%;
-      bottom: 8%;
-      width: 48%;
-      opacity: 0.76;
-      filter: grayscale(100%) contrast(1.2) brightness(0.84);
-    }
-
-    .stage-ruin {
-      right: -11%;
-      bottom: 6%;
-      width: 68%;
-      opacity: 0.72;
-      filter: grayscale(100%) contrast(1.25) brightness(0.82);
-    }
-
-    .stage-wide {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 92px;
-      object-fit: cover;
-      opacity: 0.72;
-    }
-
-    .stage-person {
-      right: 8%;
-      top: 8%;
-      width: 112px;
-      opacity: 0.82;
-      filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.58));
-    }
-
-    .hero-ticker {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      background: rgba(3, 3, 3, 0.78);
-      backdrop-filter: blur(12px);
-      z-index: 3;
-    }
-
-    .hero-ticker a {
-      min-height: 92px;
-      padding: 18px 24px;
-      border-left: 1px solid var(--line);
-      color: var(--muted);
-      display: grid;
-      align-content: center;
-      gap: 3px;
-    }
-
-    .hero-ticker a:first-child {
-      border-left: 0;
-    }
-
-    .hero-ticker a:hover,
-    .hero-ticker a:focus-visible {
-      background: rgba(227, 53, 42, 0.13);
-      color: var(--ink);
-    }
-
-    .hero-ticker span {
-      color: var(--red);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    section {
-      padding: 88px 36px;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr);
-      gap: 44px;
-      align-items: start;
-      margin-bottom: 44px;
-    }
-
-    .section-head.compact-head {
-      grid-template-columns: 1fr;
-      margin-bottom: 30px;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--red);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.16rem;
-      font-style: italic;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: 3rem;
-      max-width: 900px;
-    }
-
-    .major-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .major-card {
-      min-height: 350px;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)),
-        var(--paper);
-      display: grid;
-      align-content: start;
-      gap: 22px;
-    }
-
-    .major-card h3 {
-      margin: 0;
-      font-size: 2.05rem;
-    }
-
-    .major-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .major-card .source-link {
-      align-self: end;
-      margin-top: 4px;
-    }
-
-    .project-section {
-      padding-top: 96px;
-    }
-
-    .project-title {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 34px;
-      align-items: end;
-      margin-bottom: 36px;
-    }
-
-    .project-title h2 {
-      margin: 8px 0 0;
-      font-size: 2.82rem;
-      max-width: 900px;
-    }
-
-    .project-title h2 + p {
-      margin-top: 22px;
-    }
-
-    .project-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 910px;
-      line-height: 1.78;
-    }
-
-    .status-chip {
-      align-self: start;
-      min-height: 34px;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      color: var(--gold);
-      background: rgba(215, 181, 87, 0.08);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .work-card {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--paper);
-      min-width: 0;
-      overflow: hidden;
-      display: grid;
-      align-content: start;
-    }
-
-    .work-cover {
-      margin: 0;
-      aspect-ratio: 16 / 9;
-      background: #050505;
-      border-bottom: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-    }
-
-    .work-cover img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-    }
-
-    .work-body {
-      padding: 34px;
-      display: grid;
-      align-content: start;
-      gap: 20px;
-    }
-
-    .work-type {
-      margin: 0;
-      color: var(--cyan);
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .work-body h3 {
-      margin: 0;
-      font-size: 1.82rem;
-    }
-
-    .authors {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      line-height: 1.68;
-    }
-
-    .authors strong {
-      color: var(--ink);
-      background: rgba(227, 53, 42, 0.2);
-      padding: 0 4px;
-    }
-
-    .work-body p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.76;
-    }
-
-    .work-body ul {
-      margin: 0;
-      padding-left: 19px;
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .work-body li + li {
-      margin-top: 12px;
-    }
-
-    .source-link {
-      justify-self: start;
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      color: var(--ink);
-      border-bottom: 2px solid var(--red);
-      font-weight: 900;
-    }
-
-    .source-link:hover,
-    .source-link:focus-visible {
-      color: var(--cyan);
-    }
-
-    .simulation-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-
-    .sim-card {
-      min-height: 430px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 34px;
-      background:
-        linear-gradient(180deg, rgba(140, 206, 223, 0.07), rgba(227, 53, 42, 0.045)),
-        rgba(8, 8, 8, 0.84);
-      display: grid;
-      align-content: start;
-      gap: 20px;
-    }
-
-    .sim-card h3 {
-      margin: 0;
-      font-size: 1.72rem;
-    }
-
-    .sim-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.76;
-    }
-
-    .sim-card ul {
-      margin: 0;
-      padding-left: 19px;
-      color: var(--muted);
-      line-height: 1.72;
-    }
-
-    .sim-card li + li {
-      margin-top: 12px;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 36px;
-      color: var(--dim);
-      background: rgba(3, 3, 3, 0.88);
-    }
-
-    @media (max-width: 1040px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 38px;
-      }
-
-      h1 {
-        font-size: 4.2rem;
-      }
-
-      .stage-scene {
-        min-height: 360px;
-      }
-
-      .section-head h2,
-      .project-title h2 {
-        font-size: 2.55rem;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .back-link,
-      .project-menu {
-        position: absolute;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 152px;
-        padding-bottom: 0;
-      }
-
-      .hero-inner {
-        padding-bottom: 40px;
-      }
-
-      .stage-scene {
-        min-height: 300px;
-      }
-
-      .hero-ticker {
-        position: relative;
-        grid-template-columns: 1fr;
-        margin: 20px -36px 0;
-      }
-
-      .hero-ticker a {
-        min-height: auto;
-        border-left: 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .hero-ticker a:first-child {
-        border-top: 0;
-      }
-
-      .section-head,
-      .major-grid,
-      .project-title,
-      .work-grid,
-      .simulation-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .status-chip {
-        justify-self: start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .back-link {
-        left: 18px;
-        top: 76px;
-      }
-
-      .project-menu {
-        right: 18px;
-        width: calc(100vw - 36px);
-      }
-
-      .hero,
-      section {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .project-title h2 + p {
-        margin-top: 16px;
-      }
-
-      h1 {
-        font-size: 3.05rem;
-      }
-
-      .subtitle {
-        font-size: 1.02rem;
-      }
-
-      .section-head h2,
-      .project-title h2 {
-        font-size: 2.05rem;
-      }
-
-      .major-card,
-      .work-body,
-      .sim-card {
-        padding: 24px;
-      }
-
-      .work-body h3,
-      .sim-card h3,
-      .major-card h3 {
-        font-size: 1.68rem;
-      }
-
-      .stage-scene {
-        min-height: 250px;
-      }
-
-      .stage-person {
-        width: 86px;
-      }
-
-      .hero-ticker {
-        margin-left: -20px;
-        margin-right: -20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <svg width="0" height="0" aria-hidden="true">
-    <filter id="text-waver">
-      <feTurbulence baseFrequency="0.012" seed="4">
-        <animate attributeName="seed" dur="0.55s" values="4;7;2;4" repeatCount="indefinite"></animate>
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" scale="2.3"></feDisplacementMap>
-    </filter>
-  </svg>
-
-  <a class="back-link" href="../index.html#projects">Back to projects</a>
-
-  <details class="project-menu">
-    <summary>Research Projects</summary>
-    <div class="project-options">
-      <a class="active" href="high-redshift-black-holes-agns.html">
-        <small>01 Active</small>
-        High-redshift black holes and AGNs
-      </a>
-      <a href="high-redshift-galaxies-star-formation.html">
-        <small>02</small>
-        High-redshift galaxies and star formation
-      </a>
-      <a href="artificial-intelligence-astronomy.html">
-        <small>03</small>
-        Artificial Intelligence for astronomy
-      </a>
-    </div>
-  </details>
-
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="kicker">Project 01/High-redshift AGN</p>
-          <h1>High-redshift Black Holes and AGNs</h1>
-          <p class="subtitle">
-            My work in this area is organized around two parallel projects: the life of Little Red Dots, and the accretion histories of AGNs in radiation-hydrodynamics simulations.
-          </p>
-          <p class="advisor-line">
-            The LRD project is developed with
-            <a href="https://inayoshi0328.wixsite.com/kohei-inayoshi" target="_blank" rel="noopener noreferrer">Prof. Kohei Inayoshi</a>
-            and
-            <a href="https://www.fzjiang.com" target="_blank" rel="noopener noreferrer">Prof. Fangzhou Jiang</a>.
-            The simulation project is being developed with Xuejian Shen.
-          </p>
-          <div class="hero-actions" aria-label="Project shortcuts">
-            <a class="text-link" href="#little-red-dots">Little Red Dots</a>
-            <a class="text-link" href="#agn-histories">AGN accretion histories</a>
-          </div>
-        </div>
-
-        <div class="stage-scene" aria-hidden="true">
-          <video src="../source materials/bh-star-to-normal-agn-45s-continuous-envelope-no-seam-60fps-v8.mp4" poster="../source materials/bh-star-evolution-continuous-envelope-poster-v8.png" autoplay loop muted playsinline preload="metadata"></video>
-        </div>
-      </div>
-
-      <div class="hero-ticker">
-        <a href="#little-red-dots">
-          <span>Project 1</span>
-          The life of Little Red Dots
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>High-redshift Black Holes and AGNs | Zihao Wang</title>
+    <meta
+      name="description"
+      content="Research project page of Zihao Wang on high-redshift black holes, AGNs, Little Red Dots, halo assembly bias, black-hole envelopes, and AGN accretion histories in simulations."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-black-holes-agns.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="High-redshift Black Holes and AGNs | Zihao Wang"
+    />
+    <meta
+      property="og:description"
+      content="Research projects on Little Red Dots, early black-hole growth, AGN accretion histories, and simulations."
+    />
+    <meta
+      property="og:url"
+      content="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-black-holes-agns.html"
+    />
+    <meta
+      property="og:image"
+      content="https://zihaowang-kiaa.github.io/personal-homepage/assets/images/research/bh-star-evolution-continuous-envelope-poster-v8.webp"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../assets/css/site.css" />
+    <link rel="stylesheet" href="../assets/css/research.css" />
+  </head>
+  <body class="research-page research-black-holes">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <a class="back-link" href="../index.html#projects">Back to projects</a>
+
+    <details class="project-menu">
+      <summary>Research Projects</summary>
+      <div class="project-options">
+        <a
+          class="active"
+          aria-current="page"
+          href="high-redshift-black-holes-agns.html"
+        >
+          <small>01 Active</small>
+          High-redshift black holes and AGNs
         </a>
-        <a href="#agn-histories">
-          <span>Project 2</span>
-          AGN accretion histories in simulations
+        <a href="high-redshift-galaxies-star-formation.html">
+          <small>02</small>
+          High-redshift galaxies and star formation
+        </a>
+        <a href="artificial-intelligence-astronomy.html">
+          <small>03</small>
+          Artificial Intelligence for astronomy
         </a>
       </div>
-    </section>
+    </details>
 
-    <section id="projects">
-      <div class="section-inner">
-        <div class="section-head compact-head">
-          <p>Projects</p>
-        </div>
-        <div class="major-grid">
-          <article class="major-card">
-            <p class="eyebrow">Project 1</p>
-            <h3>The life of Little Red Dots.</h3>
-            <p>
-              A theoretical program for understanding where LRDs come from and what they become, connecting halo-scale initial conditions with nuclear black-hole envelope evolution.
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="kicker">Project 01 / High-redshift AGN</p>
+            <h1>High-redshift Black Holes and AGNs</h1>
+            <p class="subtitle">
+              My work in this area is organized around two parallel projects:
+              the life of Little Red Dots, and the accretion histories of AGNs
+              in radiation-hydrodynamics simulations.
             </p>
-            <a class="source-link" href="#little-red-dots">View project</a>
-          </article>
-
-          <article class="major-card">
-            <p class="eyebrow">Project 2</p>
-            <h3>AGN accretion histories in simulations.</h3>
-            <p>
-              A simulation-based program connecting SMBH accretion histories to hydrogen and helium proximity zones and the evolving intergalactic medium.
+            <p class="advisor-line">
+              The LRD project is developed with
+              <a
+                href="https://inayoshi0328.wixsite.com/kohei-inayoshi"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Prof. Kohei Inayoshi</a
+              >
+              and
+              <a
+                href="https://www.fzjiang.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Prof. Fangzhou Jiang</a
+              >. The simulation project is being developed with Xuejian Shen.
             </p>
-            <a class="source-link" href="#agn-histories">View project</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="little-red-dots">
-      <div class="section-inner">
-        <div class="project-title">
-          <div>
-            <p class="eyebrow">Project 1 / The life of Little Red Dots</p>
-            <h2>Where do LRDs come from, and where do they go?</h2>
-            <p>
-              JWST has revealed compact sources with blue UV emission, red optical continua, broad emission lines in some cases, and inferred black-hole-to-stellar mass ratios that exceed both local scaling relations and current simulation predictions. Their abrupt emergence and disappearance over z ~ 5-8 make their origin and evolution especially puzzling.
-            </p>
+            <div class="hero-actions" aria-label="Project shortcuts">
+              <a class="text-link" href="#little-red-dots">Little Red Dots</a>
+              <a class="text-link" href="#agn-histories"
+                >AGN accretion histories</a
+              >
+            </div>
           </div>
-          <span class="status-chip">Active program</span>
+
+          <div
+            class="stage-scene"
+            aria-label="Black-hole envelope evolution artwork"
+          >
+            <video
+              controls
+              src="../assets/videos/bh-star-to-agn-45s.mp4"
+              poster="../assets/images/research/bh-star-evolution-continuous-envelope-poster-v8.webp"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
         </div>
 
-        <div class="work-grid">
-          <article class="work-card">
-            <figure class="work-cover">
-              <img src="../source materials/bias_cover.png" alt="Clustering and bias cover image">
-            </figure>
-            <div class="work-body">
-              <p class="work-type">Initial condition for LRD</p>
-              <h3>Halo assembly bias in the early Universe</h3>
-              <p class="authors">Author list: <strong>Zihao Wang</strong>, Fangzhou Jiang*</p>
+        <div class="hero-ticker">
+          <a href="#little-red-dots">
+            <span>Project 1</span>
+            The life of Little Red Dots
+          </a>
+          <a href="#agn-histories">
+            <span>Project 2</span>
+            AGN accretion histories in simulations
+          </a>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-inner">
+          <div class="section-head compact-head">
+            <p>Projects</p>
+          </div>
+          <div class="major-grid">
+            <article class="major-card">
+              <p class="eyebrow">Project 1</p>
+              <h3>The life of Little Red Dots.</h3>
               <p>
-                Assembly bias provides a way to test whether competing LRD formation scenarios occupy distinct halo environments.
+                A theoretical program for understanding where LRDs come from and
+                what they become, connecting halo-scale initial conditions with
+                nuclear black-hole envelope evolution.
+              </p>
+              <a class="source-link" href="#little-red-dots">View project</a>
+            </article>
+
+            <article class="major-card">
+              <p class="eyebrow">Project 2</p>
+              <h3>AGN accretion histories in simulations.</h3>
+              <p>
+                A simulation-based program connecting SMBH accretion histories
+                to hydrogen and helium proximity zones and the evolving
+                intergalactic medium.
+              </p>
+              <a class="source-link" href="#agn-histories">View project</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-section" id="little-red-dots">
+        <div class="section-inner">
+          <div class="project-title">
+            <div>
+              <p class="eyebrow">Project 1 / The life of Little Red Dots</p>
+              <h2>Where do LRDs come from, and where do they go?</h2>
+              <p>
+                JWST has revealed compact sources with blue UV emission, red
+                optical continua, broad emission lines in some cases, and
+                inferred black-hole-to-stellar mass ratios that exceed both
+                local scaling relations and current simulation predictions.
+                Their abrupt emergence and disappearance over z ~ 5-8 make their
+                origin and evolution especially puzzling.
+              </p>
+            </div>
+            <span class="status-chip">Active program</span>
+          </div>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <figure class="work-cover">
+                <img
+                  src="../assets/images/research/bias-cover.webp"
+                  alt="Clustering and bias cover image"
+                />
+              </figure>
+              <div class="work-body">
+                <p class="work-type">Initial condition for LRD</p>
+                <h3>Halo assembly bias in the early Universe</h3>
+                <p class="authors">
+                  Author list: <strong>Zihao Wang</strong>, Fangzhou Jiang*
+                </p>
+                <p>
+                  Assembly bias provides a way to test whether competing LRD
+                  formation scenarios occupy distinct halo environments.
+                </p>
+                <ul>
+                  <li>
+                    Characterizes early-Universe halo assembly bias in the
+                    Shin-Uchuu cosmological N-body simulation.
+                  </li>
+                  <li>
+                    Tracks how formation time, concentration, and spin change
+                    clustering at fixed mass and how those signals evolve toward
+                    high redshift.
+                  </li>
+                  <li>
+                    Applies the bias model to direct-collapse black holes,
+                    low-spin compact galaxies, SIDM core-collapse halos, and
+                    primordial black-hole-like initiation.
+                  </li>
+                  <li>
+                    Finds that the DCBH scenario predicts the strongest
+                    large-scale bias and enhanced pair fractions, while PBH-like
+                    initiation is close to unbiased.
+                  </li>
+                </ul>
+                <a
+                  class="source-link"
+                  href="https://arxiv.org/abs/2603.15736"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Read the paper</a
+                >
+              </div>
+            </article>
+
+            <article class="work-card">
+              <figure class="work-cover">
+                <img
+                  src="../assets/images/research/bhe-cover.webp"
+                  alt="Black hole envelope cover image"
+                />
+              </figure>
+              <div class="work-body">
+                <p class="work-type">Nuclear transition of LRD</p>
+                <h3>How Little Red Dots turn blue</h3>
+                <p class="authors">
+                  Author list: <strong>Zihao Wang</strong>, Kohei Inayoshi*
+                </p>
+                <p>
+                  This ongoing work asks whether LRDs and compact blue
+                  broad-line AGN are evolutionary stages of the same black-hole
+                  growth process, different viewing geometries, or both.
+                </p>
+                <ul>
+                  <li>
+                    Develops a time-dependent model for a Kelvin-Helmholtz
+                    contracting gaseous envelope around a growing black hole.
+                  </li>
+                  <li>
+                    Includes radiative and mechanical feedback from the
+                    accretion flow back onto the envelope structure.
+                  </li>
+                  <li>
+                    Predicts continuum signatures through transitional phases.
+                  </li>
+                  <li>
+                    Uses the contrast among LRDs, Little Blue Dots, and normal
+                    AGNs to constrain feedback prescriptions.
+                  </li>
+                </ul>
+                <span class="source-link" aria-label="Reference coming soon"
+                  >Reference coming soon</span
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-section" id="agn-histories">
+        <div class="section-inner">
+          <div class="project-title">
+            <div>
+              <p class="eyebrow">
+                Project 2 / Tracking AGN accretion history in
+                radiation-hydrodynamics simulations
+              </p>
+              <h2>
+                How do SMBHs grow, flicker, and affect the surrounding Universe?
+              </h2>
+              <p>
+                The growth of SMBHs is governed by their accretion histories.
+                This project uses realistic cosmological simulations to connect
+                AGN variability and lifetime to hydrogen and helium
+                proximity-zone observables during and after the Epoch of
+                Reionization.
+              </p>
+            </div>
+            <span class="status-chip">Developing</span>
+          </div>
+
+          <div class="simulation-grid">
+            <article class="sim-card">
+              <p class="eyebrow">Proximity zones</p>
+              <h3>
+                Connecting AGN accretion histories to hydrogen and helium
+                proximity zones
+              </h3>
+              <p class="authors">
+                Author list: <strong>Zihao Wang</strong>, Xuejian Shen
+              </p>
+              <p>
+                AGN proximity zones probe both the ionization state of the
+                intergalactic medium and the recent growth history of SMBHs, but
+                their interpretation is shaped by AGN variability, finite
+                lifetime, neighboring sources, and line-of-sight density
+                fluctuations.
               </p>
               <ul>
-                <li>Characterizes early-Universe halo assembly bias in the Shin-Uchuu cosmological N-body simulation.</li>
-                <li>Tracks how formation time, concentration, and spin change clustering at fixed mass and how those signals evolve toward high redshift.</li>
-                <li>Applies the bias model to direct-collapse black holes, low-spin compact galaxies, SIDM core-collapse halos, and primordial black-hole-like initiation.</li>
-                <li>Finds that the DCBH scenario predicts the strongest large-scale bias and enhanced pair fractions, while PBH-like initiation is close to unbiased.</li>
+                <li>
+                  Uses the LUMINA simulation to study HI proximity zones at z ~
+                  6-7 and HeIII proximity zones at z ~ 3-4.
+                </li>
+                <li>
+                  Connects measured proximity-zone sizes to instantaneous
+                  luminosity, accretion history, and SMBH lifetime.
+                </li>
+                <li>
+                  Tests how long ionization fronts retain memory of previous AGN
+                  activity.
+                </li>
+                <li>
+                  Quantifies how neighboring galaxies, AGN, large-scale
+                  environment, and density fluctuations affect measured sizes.
+                </li>
               </ul>
-              <a class="source-link" href="https://arxiv.org/abs/2603.15736" target="_blank" rel="noopener noreferrer">Read the paper</a>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <figure class="work-cover">
-              <img src="../source materials/BHE_cover.png" alt="Black hole envelope cover image">
-            </figure>
-            <div class="work-body">
-              <p class="work-type">Nuclear transition of LRD</p>
-              <h3>How Little Red Dots turn blue</h3>
-              <p class="authors">Author list: <strong>Zihao Wang</strong>, Kohei Inayoshi*</p>
-              <p>
-                This ongoing work asks whether LRDs and compact blue broad-line AGN are evolutionary stages of the same black-hole growth process, different viewing geometries, or both.
-              </p>
-              <ul>
-                <li>Develops a time-dependent model for a Kelvin-Helmholtz contracting gaseous envelope around a growing black hole.</li>
-                <li>Includes radiative and mechanical feedback from the accretion flow back onto the envelope structure.</li>
-                <li>Predicts continuum signatures through transitional phases.</li>
-                <li>Uses the contrast among LRDs, Little Blue Dots, and normal AGNs to constrain feedback prescriptions.</li>
-              </ul>
-              <span class="source-link" aria-label="Reference coming soon">Reference coming soon</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="agn-histories">
-      <div class="section-inner">
-        <div class="project-title">
-          <div>
-            <p class="eyebrow">Project 2 / Tracking AGN accretion history in radiation-hydrodynamics simulations</p>
-            <h2>How do SMBHs grow, flicker, and affect the surrounding Universe?</h2>
-            <p>
-              The growth of SMBHs is governed by their accretion histories. This project uses realistic cosmological simulations to connect AGN variability and lifetime to hydrogen and helium proximity-zone observables during and after the Epoch of Reionization.
-            </p>
+            </article>
           </div>
-          <span class="status-chip">Developing</span>
         </div>
+      </section>
+    </main>
 
-        <div class="simulation-grid">
-          <article class="sim-card">
-            <p class="eyebrow">Proximity zones</p>
-            <h3>Connecting AGN accretion histories to hydrogen and helium proximity zones</h3>
-            <p class="authors">Author list: <strong>Zihao Wang</strong>, Xuejian Shen</p>
-            <p>
-              AGN proximity zones probe both the ionization state of the intergalactic medium and the recent growth history of SMBHs, but their interpretation is shaped by AGN variability, finite lifetime, neighboring sources, and line-of-sight density fluctuations.
-            </p>
-            <ul>
-              <li>Uses the LUMINA simulation to study HI proximity zones at z ~ 6-7 and HeIII proximity zones at z ~ 3-4.</li>
-              <li>Connects measured proximity-zone sizes to instantaneous luminosity, accretion history, and SMBH lifetime.</li>
-              <li>Tests how long ionization fronts retain memory of previous AGN activity.</li>
-              <li>Quantifies how neighboring galaxies, AGN, large-scale environment, and density fluctuations affect measured sizes.</li>
-            </ul>
-          </article>
+    <footer>Zihao Wang / High-redshift black holes and AGNs.</footer>
 
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Zihao Wang / High-redshift black holes and AGNs.
-  </footer>
-
-  <script>
-    document.querySelectorAll("a[href]").forEach((link) => {
-      const href = link.getAttribute("href") || "";
-      if (!/^https?:\/\//i.test(href)) return;
-      const url = new URL(href, window.location.href);
-      if (url.origin === window.location.origin) return;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-    });
-  </script>
-</body>
+    <script src="../assets/js/site.js" defer></script>
+    <script src="../assets/js/research.js" defer></script>
+  </body>
 </html>

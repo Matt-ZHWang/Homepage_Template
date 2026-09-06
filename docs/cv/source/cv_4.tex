@@ -1,0 +1,171 @@
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\DeclareUnicodeCharacter{2500}{---}
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.1in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\newcommand{\myname}{\textcolor{CarnegieMellonRed}{\textbf{Z. Wang}}}
+\newcommand{\pubentry}[6]{\noindent[#1] #2, #3, \textit{#4}, #5 \href{https://arxiv.org/abs/#6}{[#6]}\par}
+\name{Zihao(Matthew) Wang} % Your name
+\address{Homepage: \href{https://zihaowang-kiaa.github.io/personal-homepage/}{\texttt{website}}}
+\address{
+\href{https://github.com/zihaowang-kiaa}{Github} \\
+\href{https://orcid.org/my-orcid?orcid=0009-0007-4590-6550}{Orcid} \\
+\href{ https://ui.adsabs.harvard.edu/public-libraries/KrWPK55_RIi-0et1K3-kDQ}{NASA ADS}
+}
+
+\address{
+Email: \texttt{zihaowang25@stu.pku.edu.cn} \\
+Contact: (+86) 13309023239
+}
+% Your phone number and email
+
+\definecolor{CarnegieMellonRed}{RGB}{196,18,48}
+
+\renewenvironment{rSection}[1]{
+\sectionskip
+\textcolor{CarnegieMellonRed}{\MakeUppercase{#1}}
+\sectionlineskip
+\hrule
+\begin{list}{}{
+\setlength{\leftmargin}{1.5em}
+}
+\item[]
+}{
+\end{list}
+}
+
+
+
+\begin{document}
+\begin{rSection}{Education and Experience}
+{\bf Peking University} \hfill {\em Sept 2025 - June 2030 (expected)}
+\\ PhD student in Astronomy \hfill
+\\  Advisor: Prof. Kohei Inayoshi \hfill
+% \\ \textit{Related courses: A, B, C. }
+
+{\bf Nanjing University} \hfill {\em Sept 2021 - June 2025}
+\\ B.S. in Astronomy (Advanced Class)
+\\ \qquad GPA: 4.54/5 (Rank: 1/ 42)\qquad  \hfill
+\\ \qquad Thesis: \textit{Estimation and physical origin of high-redshift galaxy properties in the JWST era}
+\\  Advisor: Prof. Tao Wang \hfill
+
+{\bf Massachusetts Institute of Technology} \hfill {\em June 2024 - Decem 2024}
+\\ Visiting research student in Physics
+\\  Advisor: Dr. Xuejian Shen \& Prof. Mark Vogelsberger\hfill
+\end{rSection}
+
+\begin{rSection}{Research Interests}
+{\bf High-redshift AGN \& Little Red Dots:} Theoretical modeling and predictions of the origin and evolution of Little Red Dots; Large-scale environments of high-$z$ AGN; High-$z$ AGN population in cosmological simulations \hfill
+
+{\bf High-redshift galaxies \& star formation:} Multi-scale star formation at high-$z$ from cloud and cluster to galactic scales; Diverse morphology of high-$z$ galaxies; Metal enrichment \hfill
+
+{\bf Machine learning in astrophysics:} Use of machine learning techniques in galaxy parameter estimation, classification, and target hunting. \hfill
+
+
+\end{rSection}
+
+
+% \begin{rSection}{Research Experience}
+% \begin{rSubsection}{Project name 1 \cite{paper1}}{Jan 2024 - Present}{Supervisors: \href{https://example.com/}{Dr. A}, \href{https://example.com/}{Prof. B}, and \href{https://example.com/}{Prof. C}}{CMU}
+% \item Proposed ...
+% \item Found ...
+% \item Completed ...
+% \item Modified ...
+% \item Proposed ...
+% \item Finished ...
+% \end{rSubsection}
+
+
+% \begin{rSubsection}{Project name 2 \cite{paper2}}{Dec 2023 - Feb 2024}{Supervisors: \href{https://example.weebly.com/}{Dr. A} and \href{https://www.ece.cmu.edu/directory/bios/example}{Prof. B}}{CMU}
+% \item Ran experiments for ...
+% \item Organized ...
+% \item Explored ...
+% \item Proposed ...
+% \item Finished ...
+% \end{rSubsection}
+% \end{rSection}
+
+
+\begin{rSection}{Publications} \itemsep -2pt
+% {\bf Selected publications.} \textcolor{CarnegieMellonRed}{\textbf{Z. Wang}} indicates my authorship.\par\smallskip
+{\bf Publications (as of 2026/8): 4 first-author (2 peer-reviewed) and 3 contributing-author (2 peer-reviewed) papers;
+89 total citations.}
+
+{\bf First-author papers}\par
+\pubentry{1}{\myname, X. Shen et al.}{The THESAN-ZOOM project: clumpiness of high-redshift galaxies and its connection to bursty star formation}{arXiv}{2026}{2608.19308}
+\pubentry{2}{\myname, F. Jiang et al.}{Halo assembly bias in the early Universe: a clustering probe of the origin of the Little Red Dots}{arXiv}{2026}{2603.15736}
+\pubentry{3}{\myname, T. Wang et al.}{SHAPE: I. A SOM-SED hybrid approach for efficient galaxy parameter estimation leveraging JWST}{A\&A}{2026}{2510.00187}
+\pubentry{4}{\myname, X. Shen et al.}{The THESAN-ZOOM project: star formation efficiency from giant molecular clouds to galactic scale in high-redshift starbursts}{MNRAS}{2025}{2505.05554}
+
+{\bf Contributing-author papers}\par
+\pubentry{5}{W. McClymont, V. Belokurov et al., including \myname}{Globular cluster abundance patterns inherited from giant molecular clouds}{arXiv}{2026}{2607.05509}
+\pubentry{6}{W. McClymont, S. Tacchella et al., including \myname}{The THESAN-ZOOM project: mystery N/O more --- uncovering the origin of peculiar chemical abundances and a not-so-fundamental metallicity relation at $3<z<12$}{MNRAS}{2026}{2507.08787}
+\pubentry{7}{X. Shen, R. Kannan et al., including \myname}{The THESAN-ZOOM project: star formation efficiencies in high-redshift galaxies}{MNRAS}{2026}{2503.01949}
+
+\end{rSection}
+
+% \newpage
+
+\begin{rSection}{Talks and Presentations} \itemsep -2pt
+{[1] Conference Talk, Guoshoujing annual meeting, Haikou, China} \\
+\textit{Where Little Red Dots live tells us what they are} \hfill {\em 2026}
+
+
+{[2] Conference Talk, CSST annual meeting, Kunming, China} \\
+\textit{Introducing SHAPE: A SOM-SED Hybrid Approach for Efficient galaxy Parameter Estimation}   \hfill {\em 2025}
+
+{[3] Conference Poster, Sino-German conference on Galaxy Formation, Chengdu, China} \\
+\textit{Elevated star formation efficiency at high-$z$: from a giant molecular cloud perspective} \hfill {\em 2025}
+
+\end{rSection}
+
+\begin{rSection}{Honors and awards} \itemsep -2pt
+{Outstanding Undergraduate Thesis of Nanjing University (the special prize)}\hfill {\em 2025} \\
+{Zheng-Gang Oversea Scholarship of Nanjing University}\hfill {\em 2024} \\
+{Elite Program Scholarship (the special prize)}\hfill {\em 2024} \\
+{People’s Scholarship (the first prize)} \hfill {\em 2022, 2023, 2024} \\
+{National Astronomical Observatories Scholarship}\hfill {\em 2022}
+\end{rSection}
+
+
+
+\begin{rSection}{Skills/Hobbies (* denotes extensively)} \itemsep -2pt
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Programming Languages &  Python*, C/C++, HTML \\
+Machine Learning Tools & SOM*, CNN, Random-Forest \\
+Language & Mandarin (Native), English (Proficient) \\
+Simulations &  \textit{Thesan-Zoom}*, \textit{LUMINA}*, \textit{ShinUchuu}, \textit{IllustrisTNG}, \textit{FIRE} \\
+Hobbies & cinema and photographing \\
+\end{tabular}
+\end{rSection}
+
+
+\begin{rSection}{Professional references} \itemsep -2pt
+{\bf Prof. Kohei Inayoshi } \\
+Kavli Institute for Astronomy and Astrophysics, PKU \hfill {Email: \texttt{inayoshi0328@gmail.com}}
+
+{\bf Prof. Fangzhou Jiang } \\
+Kavli Institute for Astronomy and Astrophysics, PKU \hfill {Email: \texttt{fangzhou.jiang@pku.edu.cn}}
+
+{\bf Dr. Xuejian Shen} \\
+Kavli Institute for Astrophysics and Space Research, MIT \hfill {Email: \texttt{xuejian@mit.edu}}
+
+
+{\bf Prof. Mark Vogelsberger} \\
+Kavli Institute for Astrophysics and Space Research, MIT \hfill {Email: \texttt{mvogelsb@mit.edu}}
+
+{\bf Prof. Tao Wang} \\
+School of Astronomy and Space Science, NJU
+\hfill {Email: \texttt{taowang@nju.edu.cn}}
+
+
+\end{rSection}
+
+
+
+
+
+\end{document}

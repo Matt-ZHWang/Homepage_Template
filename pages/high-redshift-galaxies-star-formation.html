@@ -1,787 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>High-redshift Galaxies and Star Formation | Zihao Wang</title>
-  <meta name="description" content="Research project page of Zihao Wang on high-redshift galaxies, Epoch of Reionization simulations, cosmic star formation, and early stellar populations.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-galaxies-star-formation.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="High-redshift Galaxies and Star Formation | Zihao Wang">
-  <meta property="og:description" content="Projects on galaxy formation at the Epoch of Reionization, cosmic star formation, and early stellar populations.">
-  <meta property="og:url" content="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-galaxies-star-formation.html">
-  <meta property="og:image" content="https://zihaowang-kiaa.github.io/personal-homepage/source%20materials/SFE.png">
-  <link rel="icon" href="data:,">
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #030504;
-      --ink: #f4f2e8;
-      --muted: #c3c7bc;
-      --dim: #7d847b;
-      --line: rgba(244, 242, 232, 0.18);
-      --green: #8dd7b5;
-      --blue: #8eb7e8;
-      --gold: #d7b85a;
-      --paper: rgba(7, 11, 10, 0.86);
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--ink);
-      background:
-        repeating-linear-gradient(105deg, rgba(141, 215, 181, 0.12) 0 1px, transparent 1px 54px),
-        repeating-linear-gradient(15deg, rgba(215, 184, 90, 0.07) 0 1px, transparent 1px 72px),
-        linear-gradient(120deg, rgba(3, 5, 4, 0.98), rgba(5, 12, 12, 0.95) 45%, rgba(11, 13, 8, 0.98)),
-        linear-gradient(90deg, rgba(141, 215, 181, 0.11), transparent 34%, rgba(142, 183, 232, 0.08) 65%, rgba(215, 184, 90, 0.08));
-      background-attachment: fixed;
-      font-family: Inter, Helvetica, Arial, sans-serif;
-      line-height: 1.72;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(141, 215, 181, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(142, 183, 232, 0.045) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), transparent 82%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    img, video {
-      display: block;
-      max-width: 100%;
-    }
-
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 2px solid var(--green);
-      outline-offset: 4px;
-    }
-
-    .back-link,
-    .project-menu {
-      position: fixed;
-      top: 18px;
-      z-index: 30;
-    }
-
-    .back-link {
-      left: 24px;
-      min-height: 42px;
-      display: inline-flex;
-      align-items: center;
-      color: var(--muted);
-      border-bottom: 2px solid var(--green);
-      font-weight: 900;
-    }
-
-    .back-link:hover,
-    .back-link:focus-visible {
-      color: var(--ink);
-    }
-
-    .project-menu {
-      right: 24px;
-      width: min(340px, calc(100vw - 48px));
-    }
-
-    .project-menu summary {
-      min-height: 42px;
-      padding: 8px 14px;
-      list-style: none;
-      cursor: pointer;
-      border: 1px solid var(--line);
-      background: rgba(3, 5, 4, 0.8);
-      backdrop-filter: blur(14px);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .project-menu summary::-webkit-details-marker { display: none; }
-
-    .project-menu summary::after {
-      content: "+";
-      float: right;
-      color: var(--green);
-    }
-
-    .project-menu[open] summary::after { content: "-"; }
-
-    .project-options {
-      margin-top: 8px;
-      border: 1px solid var(--line);
-      background: rgba(3, 5, 4, 0.94);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.48);
-    }
-
-    .project-options a,
-    .project-options span {
-      display: grid;
-      gap: 2px;
-      padding: 14px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-    }
-
-    .project-options a:first-child,
-    .project-options span:first-child { border-top: 0; }
-
-    .project-options a:hover,
-    .project-options a:focus-visible,
-    .project-options .active {
-      color: var(--ink);
-      background: rgba(141, 215, 181, 0.12);
-    }
-
-    .project-options small {
-      color: var(--dim);
-      text-transform: uppercase;
-      font-weight: 900;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.05;
-    }
-
-    .hero {
-      min-height: 100svh;
-      padding: 116px 36px 118px;
-      display: grid;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.46;
-      background:
-        linear-gradient(90deg, rgba(3, 5, 4, 0.9), rgba(3, 5, 4, 0.28) 48%, rgba(3, 5, 4, 0.82)),
-        repeating-linear-gradient(90deg, rgba(141, 215, 181, 0.18) 0 1px, transparent 1px 66px),
-        repeating-linear-gradient(0deg, rgba(215, 184, 90, 0.12) 0 1px, transparent 1px 84px);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 34%;
-      background: linear-gradient(0deg, rgba(3, 5, 4, 0.98), transparent);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero-inner,
-    .section-inner {
-      width: min(var(--max), 100%);
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(380px, 0.85fr);
-      gap: 68px;
-      align-items: center;
-    }
-
-    .kicker,
-    .eyebrow {
-      margin: 0;
-      color: var(--green);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin-top: 18px;
-      max-width: 700px;
-      font-size: 4.65rem;
-      filter: url(#text-waver);
-    }
-
-    .subtitle,
-    .supporting-copy {
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.78;
-    }
-
-    .subtitle {
-      margin: 28px 0 0;
-      max-width: 760px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .text-link,
-    .source-link {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-self: start;
-      color: var(--ink);
-      border-bottom: 2px solid var(--green);
-      font-weight: 900;
-    }
-
-    .text-link:hover,
-    .source-link:hover,
-    .text-link:focus-visible,
-    .source-link:focus-visible {
-      color: var(--green);
-    }
-
-    .simulation-window {
-      border: 1px solid var(--line);
-      background: rgba(0, 0, 0, 0.58);
-      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.58);
-      overflow: hidden;
-    }
-
-    .simulation-window video {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      filter: contrast(1.12) saturate(0.88);
-    }
-
-    .credit-line {
-      margin: 0;
-      padding: 10px 14px;
-      border-top: 1px solid var(--line);
-      color: var(--dim);
-      font-size: 0.82rem;
-    }
-
-    .hero-ticker {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 3;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      border-top: 1px solid var(--line);
-      background: rgba(3, 5, 4, 0.82);
-      backdrop-filter: blur(12px);
-    }
-
-    .hero-ticker a {
-      min-height: 88px;
-      padding: 18px 24px;
-      border-left: 1px solid var(--line);
-      color: var(--muted);
-      display: grid;
-      align-content: center;
-      gap: 3px;
-    }
-
-    .hero-ticker a:first-child { border-left: 0; }
-
-    .hero-ticker a:hover,
-    .hero-ticker a:focus-visible {
-      color: var(--ink);
-      background: rgba(141, 215, 181, 0.11);
-    }
-
-    .hero-ticker span {
-      color: var(--green);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    section {
-      padding: 88px 36px;
-      border-top: 1px solid var(--line);
-      background: rgba(3, 5, 4, 0.72);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(190px, 0.32fr) minmax(0, 1fr);
-      gap: 44px;
-      align-items: start;
-      margin-bottom: 40px;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--gold);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.12rem;
-      font-style: italic;
-    }
-
-    .section-head h2 {
-      font-size: 3.1rem;
-      max-width: 920px;
-    }
-
-    .route-grid,
-    .work-grid,
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .route-card,
-    .work-card,
-    .related-card {
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background:
-        linear-gradient(180deg, rgba(141, 215, 181, 0.07), rgba(142, 183, 232, 0.035)),
-        var(--paper);
-    }
-
-    .route-card {
-      min-height: 250px;
-      padding: 32px;
-      display: grid;
-      align-content: start;
-      gap: 18px;
-    }
-
-    .route-card h3 {
-      font-size: 2rem;
-    }
-
-    .route-card p,
-    .work-body p,
-    .related-card p,
-    .work-body li {
-      color: var(--muted);
-    }
-
-    .work-card {
-      overflow: hidden;
-      display: grid;
-      align-content: start;
-    }
-
-    .work-cover {
-      margin: 0;
-      aspect-ratio: 16 / 9;
-      display: grid;
-      place-items: center;
-      border-bottom: 1px solid var(--line);
-      background: #030504;
-      overflow: hidden;
-    }
-
-    .work-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .work-body {
-      padding: 34px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .work-type {
-      margin: 0;
-      color: var(--green);
-      font-size: 0.78rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .work-body h3 {
-      font-size: 1.86rem;
-    }
-
-    .authors {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .authors strong {
-      color: var(--ink);
-      background: rgba(141, 215, 181, 0.16);
-      padding: 0 4px;
-    }
-
-    .work-body ul {
-      margin: 0;
-      padding-left: 20px;
-      line-height: 1.72;
-    }
-
-    .work-body li + li {
-      margin-top: 12px;
-    }
-
-    .related-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .related-block {
-      margin-top: 36px;
-      padding-top: 30px;
-      border-top: 1px solid var(--line);
-    }
-
-    .subsection-head {
-      display: grid;
-      gap: 10px;
-      max-width: 860px;
-      margin-bottom: 22px;
-    }
-
-    .subsection-head .eyebrow {
-      color: var(--gold);
-    }
-
-    .subsection-head h3 {
-      font-size: 1.78rem;
-    }
-
-    .related-card {
-      padding: 26px;
-      display: grid;
-      gap: 14px;
-      align-content: start;
-    }
-
-    .related-card h3 {
-      font-size: 1.45rem;
-    }
-
-    .status-chip {
-      width: max-content;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      color: var(--gold);
-      background: rgba(215, 184, 90, 0.08);
-      font-size: 0.8rem;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 36px;
-      color: var(--dim);
-      background: rgba(3, 5, 4, 0.9);
-    }
-
-    @media (max-width: 960px) {
-      .hero-inner,
-      .section-head,
-      .route-grid,
-      .work-grid,
-      .related-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 150px;
-      }
-
-      .hero-ticker {
-        position: relative;
-        grid-template-columns: 1fr;
-        margin: 42px -36px -118px;
-      }
-
-      .hero-ticker a {
-        border-left: 0;
-        border-top: 1px solid var(--line);
-      }
-
-      .hero-ticker a:first-child {
-        border-top: 0;
-      }
-
-      .project-menu,
-      .back-link {
-        position: absolute;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero,
-      section {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-
-      .back-link {
-        left: 18px;
-        top: 76px;
-      }
-
-      .project-menu {
-        right: 18px;
-        width: calc(100vw - 36px);
-      }
-
-      .hero-ticker {
-        margin-left: -20px;
-        margin-right: -20px;
-      }
-
-      h1 {
-        font-size: 2.65rem;
-      }
-
-      .section-head h2 {
-        font-size: 2.08rem;
-      }
-
-      .route-card,
-      .work-body,
-      .related-card {
-        padding: 24px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <svg width="0" height="0" aria-hidden="true">
-    <filter id="text-waver">
-      <feTurbulence baseFrequency="0.01" seed="9">
-        <animate attributeName="seed" dur="1.2s" values="9;10;12;9" repeatCount="indefinite"></animate>
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" scale="2"></feDisplacementMap>
-    </filter>
-  </svg>
-
-  <a class="back-link" href="../index.html#projects">Back to projects</a>
-
-  <details class="project-menu">
-    <summary>Research Projects</summary>
-    <div class="project-options">
-      <a href="high-redshift-black-holes-agns.html">
-        <small>01</small>
-        High-redshift black holes and AGNs
-      </a>
-      <a class="active" href="high-redshift-galaxies-star-formation.html">
-        <small>02 Active</small>
-        High-redshift galaxies and star formation
-      </a>
-      <a href="artificial-intelligence-astronomy.html">
-        <small>03</small>
-        Artificial Intelligence for astronomy
-      </a>
-    </div>
-  </details>
-
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div>
-          <p class="kicker">Project 02 / Cosmic dawn simulations</p>
-          <h1>High-redshift Galaxies and Star Formation</h1>
-          <p class="subtitle">
-            This project studies how early galaxies turn gas into stars across the interstellar, circumgalactic, and cosmological environments through two parallel directions: high-redshift galaxy formation and cosmic star formation.
-          </p>
-          <div class="hero-actions" aria-label="Project shortcuts">
-            <a class="text-link" href="#research-directions">Directions</a>
-            <a class="text-link" href="#thesan-zoom-projects">THESAN-ZOOM projects</a>
-            <a class="text-link" href="#cosmic-star-formation">Cosmic star formation</a>
-          </div>
-        </div>
-
-        <div class="simulation-window">
-          <video src="../source materials/Zoom_m_9_7_first80s.mp4" autoplay loop muted playsinline></video>
-          <p class="credit-line">Video credit: THESAN-ZOOM Simulations.</p>
-        </div>
-      </div>
-
-      <div class="hero-ticker">
-        <a href="#thesan-zoom-projects">
-          <span>Project route 1</span>
-          THESAN-ZOOM projects
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>High-redshift Galaxies and Star Formation | Zihao Wang</title>
+    <meta
+      name="description"
+      content="Research project page of Zihao Wang on high-redshift galaxies, Epoch of Reionization simulations, cosmic star formation, and early stellar populations."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-galaxies-star-formation.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="High-redshift Galaxies and Star Formation | Zihao Wang"
+    />
+    <meta
+      property="og:description"
+      content="Projects on galaxy formation at the Epoch of Reionization, cosmic star formation, and early stellar populations."
+    />
+    <meta
+      property="og:url"
+      content="https://zihaowang-kiaa.github.io/personal-homepage/pages/high-redshift-galaxies-star-formation.html"
+    />
+    <meta
+      property="og:image"
+      content="https://zihaowang-kiaa.github.io/personal-homepage/assets/images/research/sfe.webp"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../assets/css/site.css" />
+    <link rel="stylesheet" href="../assets/css/research.css" />
+  </head>
+  <body class="research-page research-galaxies">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <a class="back-link" href="../index.html#projects">Back to projects</a>
+
+    <details class="project-menu">
+      <summary>Research Projects</summary>
+      <div class="project-options">
+        <a href="high-redshift-black-holes-agns.html">
+          <small>01</small>
+          High-redshift black holes and AGNs
         </a>
-        <a href="#cosmic-star-formation">
-          <span>Project route 2</span>
-          Cosmic star formation
+        <a
+          class="active"
+          aria-current="page"
+          href="high-redshift-galaxies-star-formation.html"
+        >
+          <small>02 Active</small>
+          High-redshift galaxies and star formation
+        </a>
+        <a href="artificial-intelligence-astronomy.html">
+          <small>03</small>
+          Artificial Intelligence for astronomy
         </a>
       </div>
-    </section>
+    </details>
 
-    <section id="research-directions">
-      <div class="section-inner">
-        <div class="section-head">
-          <p>Research directions</p>
-          <h2>Early galaxies from resolved simulations to cosmic star formation.</h2>
-        </div>
-
-        <div class="route-grid">
-          <article class="route-card">
-            <p class="eyebrow">Project route 1 / THESAN-ZOOM projects</p>
-            <h3>High-redshift galaxy formation.</h3>
-            <p>
-              This route connects dense gas, giant molecular clouds, feedback, and wavelength-dependent morphology in early galaxies.
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">Project 02 / Cosmic dawn simulations</p>
+            <h1>High-redshift Galaxies and Star Formation</h1>
+            <p class="subtitle">
+              This project studies how early galaxies turn gas into stars across
+              the interstellar, circumgalactic, and cosmological environments
+              through two parallel directions: high-redshift galaxy formation
+              and cosmic star formation.
             </p>
-            <a class="source-link" href="#thesan-zoom-projects">View work</a>
-          </article>
-
-          <article class="route-card">
-            <p class="eyebrow">Project route 2</p>
-            <h3>Cosmic star formation.</h3>
-            <p>
-              This route studies how stellar populations and the initial mass function respond to radiative environments, with implications for compact high-redshift sources such as Little Red Dots.
-            </p>
-            <a class="source-link" href="#cosmic-star-formation">View direction</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="thesan-zoom-projects">
-      <div class="section-inner">
-        <div class="section-head">
-          <p>THESAN-ZOOM projects</p>
-          <h2>Galaxy formation at the Epoch of Reionization.</h2>
-        </div>
-
-        <div class="work-grid">
-          <article class="work-card">
-            <figure class="work-cover">
-              <img src="../source materials/SFE.png" alt="Cover image for star formation efficiency in THESAN-ZOOM">
-            </figure>
-            <div class="work-body">
-              <p class="work-type">Published / galaxy and cloud scales</p>
-              <h3>Multi-scale investigation of star formation efficiency at high redshift</h3>
-              <p class="authors">Author list: <strong>Zihao Wang</strong>, Xuejian Shen, Mark Vogelsberger, Hui Li, Rahul Kannan, Ewald Puchwein, Aaron Smith, Josh Borrow, Enrico Garaldi, Laura Keating, Oliver Zier, William McClymont, Sandro Tacchella, Yang Ni, Lars Hernquist</p>
-              <p>
-                The work connects global galaxy-scale star formation efficiency to local cloud-scale physics, asking which scales are responsible for apparently elevated baryon conversion efficiency at high redshift.
-              </p>
-              <ul>
-                <li>Star formation is predominantly hosted by filamentary giant molecular clouds embedded in dense, high-pressure interstellar media.</li>
-                <li>At the GMC scale, star formation appears nearly universal across redshift and halo mass.</li>
-                <li>GMC gas surface density remains nearly constant, while dark matter surface density rises toward high redshift.</li>
-                <li>At z &gt; 10, dark-matter-dominated GMCs can emerge and may exhibit elevated star formation efficiencies.</li>
-                <li>The GMC mass fraction is the dominant factor shaping the global SFR-surface density relation.</li>
-              </ul>
-              <a class="source-link" href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.544.2675W/abstract" target="_blank" rel="noopener noreferrer">Read the paper</a>
+            <div class="hero-actions" aria-label="Project shortcuts">
+              <a class="text-link" href="#research-directions">Directions</a>
+              <a class="text-link" href="#thesan-zoom-projects"
+                >THESAN-ZOOM projects</a
+              >
+              <a class="text-link" href="#cosmic-star-formation"
+                >Cosmic star formation</a
+              >
             </div>
-          </article>
-
-          <article class="work-card">
-            <figure class="work-cover">
-              <img src="../source materials/clumps.png" alt="Cover image for galaxy clumpiness across wavelengths">
-            </figure>
-            <div class="work-body">
-              <p class="work-type">Preprint / morphology and feedback</p>
-              <h3>Clumpiness across wavelengths, redshifts, and galaxy formation models</h3>
-              <p class="authors">Author list: <strong>Zihao Wang</strong>, Xuejian Shen, Rahul Kannan, Ewald Puchwein, Aaron Smith, Josh Borrow, Enrico Garaldi, Laura Keating, Mark Vogelsberger, Oliver Zier, William McClymont, Sandro Tacchella, Fangzhou Jiang, Hui Li, Lars Hernquist</p>
-              <p>
-                Recent JWST observations reveal irregular and clumpy high-redshift galaxies. This work uses a power-spectrum-based approach to quantify clumpiness across spatial scales in simulations.
-              </p>
-              <ul>
-                <li>Intrinsic stellar mass distributions remain comparatively smooth over cosmic time.</li>
-                <li>Emission fields such as H alpha, FUV, and optical light show systematically stronger small-scale structure.</li>
-                <li>Shorter-timescale star-formation tracers show shallower power spectra and enhanced spatial intermittency on roughly 100-1000 pc scales.</li>
-                <li>Clumpiness is sensitive to stellar feedback prescriptions and varies strongly across bursty star-formation phases.</li>
-                <li>The contrast between clumpy light and smooth stellar mass helps separate intrinsic galaxy structure from observational timescale bias.</li>
-              </ul>
-              <a class="source-link" href="https://arxiv.org/abs/2608.19308" target="_blank" rel="noopener noreferrer">Read the preprint</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="related-block" id="related-papers">
-          <div class="subsection-head">
-            <p class="eyebrow">Related papers</p>
-            <h3>Chemical signatures in early galaxies and star clusters.</h3>
           </div>
 
-          <div class="related-grid">
-            <article class="related-card">
-              <p class="eyebrow">Chemical abundance</p>
-              <h3>Nitrogen-rich galaxies</h3>
-              <p>
-                Cloud-level gas structure and bursty star formation provide a route for interpreting peculiar high-redshift abundance patterns.
-              </p>
-              <a class="source-link" href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.548ag016M/abstract" target="_blank" rel="noopener noreferrer">Related paper</a>
-            </article>
-
-            <article class="related-card">
-              <p class="eyebrow">Globular clusters</p>
-              <h3>Multi-population chemical features</h3>
-              <p>
-                Dense cloud environments in early galaxies can preserve abundance structures relevant to globular-cluster-like multiple populations.
-              </p>
-              <a class="source-link" href="https://arxiv.org/abs/2607.05509" target="_blank" rel="noopener noreferrer">Related preprint</a>
-            </article>
-
+          <div class="simulation-window">
+            <video
+              controls
+              src="../assets/videos/thesan-zoom-80s.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="credit-line">Video credit: THESAN-ZOOM Simulations.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="cosmic-star-formation">
-      <div class="section-inner">
-        <div class="section-head">
-          <p>Cosmic star formation</p>
-          <h2>Stellar populations and radiative environments at high redshift.</h2>
+        <div class="hero-ticker">
+          <a href="#thesan-zoom-projects">
+            <span>Project route 1</span>
+            THESAN-ZOOM projects
+          </a>
+          <a href="#cosmic-star-formation">
+            <span>Project route 2</span>
+            Cosmic star formation
+          </a>
         </div>
+      </section>
 
-        <div class="route-card">
-          <span class="status-chip">Developing direction</span>
-          <h3>Radiation, stellar populations, and compact high-redshift sources.</h3>
-          <p class="supporting-copy">
-            This direction models how the initial mass function may respond to radiative environments, and how that response might help explain the evolution of compact sources such as Little Red Dots. It connects the star-formation side of high-redshift galaxies with the black-hole and AGN questions in Project 01.
-          </p>
+      <section id="research-directions">
+        <div class="section-inner">
+          <div class="section-head">
+            <p>Research directions</p>
+            <h2>
+              Early galaxies from resolved simulations to cosmic star formation.
+            </h2>
+          </div>
+
+          <div class="route-grid">
+            <article class="route-card">
+              <p class="eyebrow">Project route 1 / THESAN-ZOOM projects</p>
+              <h3>High-redshift galaxy formation.</h3>
+              <p>
+                This route connects dense gas, giant molecular clouds, feedback,
+                and wavelength-dependent morphology in early galaxies.
+              </p>
+              <a class="source-link" href="#thesan-zoom-projects">View work</a>
+            </article>
+
+            <article class="route-card">
+              <p class="eyebrow">Project route 2</p>
+              <h3>Cosmic star formation.</h3>
+              <p>
+                This route studies how stellar populations and the initial mass
+                function respond to radiative environments, with implications
+                for compact high-redshift sources such as Little Red Dots.
+              </p>
+              <a class="source-link" href="#cosmic-star-formation"
+                >View direction</a
+              >
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    Zihao Wang / High-redshift galaxies and star formation.
-  </footer>
+      <section id="thesan-zoom-projects">
+        <div class="section-inner">
+          <div class="section-head">
+            <p>THESAN-ZOOM projects</p>
+            <h2>Galaxy formation at the Epoch of Reionization.</h2>
+          </div>
 
-  <script>
-    document.querySelectorAll("a[href]").forEach((link) => {
-      const href = link.getAttribute("href") || "";
-      if (!/^https?:\/\//i.test(href)) return;
-      const url = new URL(href, window.location.href);
-      if (url.origin === window.location.origin) return;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-    });
-  </script>
-</body>
+          <div class="work-grid">
+            <article class="work-card">
+              <figure class="work-cover">
+                <img
+                  src="../assets/images/research/sfe.webp"
+                  alt="Cover image for star formation efficiency in THESAN-ZOOM"
+                />
+              </figure>
+              <div class="work-body">
+                <p class="work-type">Published / galaxy and cloud scales</p>
+                <h3>
+                  Multi-scale investigation of star formation efficiency at high
+                  redshift
+                </h3>
+                <p class="authors">
+                  Author list: <strong>Zihao Wang</strong>, Xuejian Shen, Mark
+                  Vogelsberger, Hui Li, Rahul Kannan, Ewald Puchwein, Aaron
+                  Smith, Josh Borrow, Enrico Garaldi, Laura Keating, Oliver
+                  Zier, William McClymont, Sandro Tacchella, Yang Ni, Lars
+                  Hernquist
+                </p>
+                <p>
+                  The work connects global galaxy-scale star formation
+                  efficiency to local cloud-scale physics, asking which scales
+                  are responsible for apparently elevated baryon conversion
+                  efficiency at high redshift.
+                </p>
+                <ul>
+                  <li>
+                    Star formation is predominantly hosted by filamentary giant
+                    molecular clouds embedded in dense, high-pressure
+                    interstellar media.
+                  </li>
+                  <li>
+                    At the GMC scale, star formation appears nearly universal
+                    across redshift and halo mass.
+                  </li>
+                  <li>
+                    GMC gas surface density remains nearly constant, while dark
+                    matter surface density rises toward high redshift.
+                  </li>
+                  <li>
+                    At z &gt; 10, dark-matter-dominated GMCs can emerge and may
+                    exhibit elevated star formation efficiencies.
+                  </li>
+                  <li>
+                    The GMC mass fraction is the dominant factor shaping the
+                    global SFR-surface density relation.
+                  </li>
+                </ul>
+                <a
+                  class="source-link"
+                  href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.544.2675W/abstract"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Read the paper</a
+                >
+              </div>
+            </article>
+
+            <article class="work-card">
+              <figure class="work-cover">
+                <img
+                  src="../assets/images/research/clumps.webp"
+                  alt="Cover image for galaxy clumpiness across wavelengths"
+                />
+              </figure>
+              <div class="work-body">
+                <p class="work-type">Preprint / morphology and feedback</p>
+                <h3>
+                  Clumpiness across wavelengths, redshifts, and galaxy formation
+                  models
+                </h3>
+                <p class="authors">
+                  Author list: <strong>Zihao Wang</strong>, Xuejian Shen, Rahul
+                  Kannan, Ewald Puchwein, Aaron Smith, Josh Borrow, Enrico
+                  Garaldi, Laura Keating, Mark Vogelsberger, Oliver Zier,
+                  William McClymont, Sandro Tacchella, Fangzhou Jiang, Hui Li,
+                  Lars Hernquist
+                </p>
+                <p>
+                  Recent JWST observations reveal irregular and clumpy
+                  high-redshift galaxies. This work uses a power-spectrum-based
+                  approach to quantify clumpiness across spatial scales in
+                  simulations.
+                </p>
+                <ul>
+                  <li>
+                    Intrinsic stellar mass distributions remain comparatively
+                    smooth over cosmic time.
+                  </li>
+                  <li>
+                    Emission fields such as H alpha, FUV, and optical light show
+                    systematically stronger small-scale structure.
+                  </li>
+                  <li>
+                    Shorter-timescale star-formation tracers show shallower
+                    power spectra and enhanced spatial intermittency on roughly
+                    100-1000 pc scales.
+                  </li>
+                  <li>
+                    Clumpiness is sensitive to stellar feedback prescriptions
+                    and varies strongly across bursty star-formation phases.
+                  </li>
+                  <li>
+                    The contrast between clumpy light and smooth stellar mass
+                    helps separate intrinsic galaxy structure from observational
+                    timescale bias.
+                  </li>
+                </ul>
+                <a
+                  class="source-link"
+                  href="https://arxiv.org/abs/2608.19308"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Read the preprint</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <div class="related-block" id="related-papers">
+            <div class="subsection-head">
+              <p class="eyebrow">Related papers</p>
+              <h3>Chemical signatures in early galaxies and star clusters.</h3>
+            </div>
+
+            <div class="related-grid">
+              <article class="related-card">
+                <p class="eyebrow">Chemical abundance</p>
+                <h3>Nitrogen-rich galaxies</h3>
+                <p>
+                  Cloud-level gas structure and bursty star formation provide a
+                  route for interpreting peculiar high-redshift abundance
+                  patterns.
+                </p>
+                <a
+                  class="source-link"
+                  href="https://ui.adsabs.harvard.edu/abs/2026MNRAS.548ag016M/abstract"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Related paper</a
+                >
+              </article>
+
+              <article class="related-card">
+                <p class="eyebrow">Globular clusters</p>
+                <h3>Multi-population chemical features</h3>
+                <p>
+                  Dense cloud environments in early galaxies can preserve
+                  abundance structures relevant to globular-cluster-like
+                  multiple populations.
+                </p>
+                <a
+                  class="source-link"
+                  href="https://arxiv.org/abs/2607.05509"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Related preprint</a
+                >
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cosmic-star-formation">
+        <div class="section-inner">
+          <div class="section-head">
+            <p>Cosmic star formation</p>
+            <h2>
+              Stellar populations and radiative environments at high redshift.
+            </h2>
+          </div>
+
+          <div class="route-card">
+            <span class="status-chip">Developing direction</span>
+            <h3>
+              Radiation, stellar populations, and compact high-redshift sources.
+            </h3>
+            <p class="supporting-copy">
+              This direction models how the initial mass function may respond to
+              radiative environments, and how that response might help explain
+              the evolution of compact sources such as Little Red Dots. It
+              connects the star-formation side of high-redshift galaxies with
+              the black-hole and AGN questions in Project 01.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Zihao Wang / High-redshift galaxies and star formation.</footer>
+
+    <script src="../assets/js/site.js" defer></script>
+    <script src="../assets/js/research.js" defer></script>
+  </body>
 </html>
