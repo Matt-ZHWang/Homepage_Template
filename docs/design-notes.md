@@ -23,7 +23,7 @@ Use atmosphere to support navigation rather than conceal it. Drag interactions o
 
 `assets/js/site.js` manages ambient-video motion preferences, visibility-based pausing, and explicit playback control. `home.js` owns the interactive room stage; `research.js` owns project navigation and external-link behavior; `posts.js` owns section navigation and the photograph viewer. Load shared behavior before page-specific behavior, using deferred scripts.
 
-`assets/js/background-lines.js` preserves the homepage's mouse-responsive particle network, adapted from the original MIT-licensed canvas-nest effect. Keep it below portrait and text layers, with its own pause control, reduced-motion support, and no pointer-event interception. This interaction is part of the user's preferred design and should not be removed during visual simplification.
+`assets/js/background-lines.js` is the unmodified original MIT-licensed canvas-nest v1.0.1 script, restored from the earliest local `mousemove.js`. Keep its original white color, opacity 0.18, 120 particles, and z-index −1. The original 6000/20000 squared-distance thresholds, outer-ring-only attraction, and thin strokes are intentional; do not replace them with a denser network or a stronger halo. Load this script synchronously as the final script element, since it reads configuration from the last script tag. The opaque hero scenery naturally covers this background layer, as it did originally. This interaction is part of the user's preferred design and should not be redesigned during visual simplification.
 
 ## Assets and preservation
 
