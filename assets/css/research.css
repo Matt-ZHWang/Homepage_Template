@@ -473,6 +473,32 @@ html {
 .research-page .sim-card {
   max-width: 950px;
 }
+.research-page .proximity-figure {
+  margin: 30px 0;
+}
+.research-page .proximity-figure > a {
+  display: block;
+}
+.research-page .proximity-figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.research-page .proximity-figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.research-page .proximity-figure figcaption a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 .research-page footer {
   padding: 32px max(32px, calc((100vw - var(--max)) / 2));
   color: var(--dim);

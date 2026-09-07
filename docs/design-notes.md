@@ -29,7 +29,9 @@ Use atmosphere to support navigation rather than conceal it. Drag interactions o
 
 Published images live under `assets/images/`, organized as `portrait/`, `collage/`, `research/`, `journal/`, and `albums/`. Published video clips live under `assets/videos/`. The previous `source materials/` paths are superseded by the entries in `docs/asset-map.json`.
 
-The LRD hero uses `assets/videos/bh-star-to-agn-realistic-20s.mp4`, copied unchanged from the 20-second, 1920 × 1080, 60 fps accelerated version in `output/bh_star_to_agn_realistic/`. It retains the complete transition at 2.25× speed. Its matching still is `assets/images/research/bh-star-to-agn-realistic-poster.png`. The original 45-second render remains local. The movie is an illustrative 3-D rendering, not a calibrated hydrodynamic simulation.
+The LRD hero uses `assets/videos/bh-star-to-agn-red-to-blue-20s.mp4`, copied unchanged from the 20-second, 1920 × 1080, 60 fps render in `output/bh_star_to_agn_red_to_blue/`. Its matching still is `assets/images/research/bh-star-to-agn-red-to-blue-poster.png`. It preserves the complete evolution from a crimson envelope to an exposed blue-white AGN. Earlier movies remain available as retained assets or local source renders. The movie is an illustrative 3-D rendering, not a calibrated hydrodynamic simulation.
+
+The Proximity zones project links to `assets/images/research/proximity-zones-z6-highres.png`, a 5814 × 6000 PNG rendered directly from the single page of `main_z6.pdf`. The in-page image is a 1745 × 1800 WebP preview. Keep the original four-panel layout, colormaps, labels, and scale bars intact; do not apply decorative filters or crop the scientific figure. The source PDF is retained locally.
 
 The `album_previews` mapping pairs each original in `albums/` with its optimized WebP preview in `assets/images/albums/`. Keep the originals and the mapping: previews are for efficient browsing, while original links preserve access to the full photograph. Keep album and photograph order intact. Album order is Sri Lanka, USA, Malaysia & Singapore, Tibet, Qinhuangdao, Haikou, and Experimental.
 

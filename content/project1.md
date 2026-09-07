@@ -76,7 +76,7 @@ The growth of supermassive black holes (SMBHs) is fundamentally governed by thei
 
 **Work 1. Connecting AGN accretion histories to hydrogen and helium proximity zones**
 
-Cover: nan
+Cover: [高清 PNG](../assets/images/research/proximity-zones-z6-highres.png), rendered from `main_z6.pdf`; web preview: `../assets/images/research/proximity-zones-z6-preview.webp`.
 
 Key authors: Zihao Wang, Xuejian Shen
 
