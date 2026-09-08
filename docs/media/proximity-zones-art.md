@@ -8,7 +8,7 @@ Created 2026-09-08 with the built-in imagegen tool, in one reference-image editi
 - Artistic delivery: `assets/images/research/proximity-zones-z6-art.png`, 1254 × 1254 pixels, the tool's native output. It was not upscaled or represented as a 6000-pixel image.
 - Browsing version: `assets/images/research/proximity-zones-z6-art-preview.webp`, same dimensions, WebP quality 95.
 
-The display version is an AI-assisted artistic interpretation, not a new simulation or a quantitatively faithful data visualization. The model changed local gas structure while broadly retaining the four source panels' appearance. Source markers, calibration bars, and labels were removed from this derivative. The website identifies it as an artistic rendering and links separately to the untouched scientific figure. The original source, its colors, numerical labels, and scale bars are preserved. No website palette, portrait, or background-interaction changes were made.
+The display version is an AI-assisted artistic interpretation, not a new simulation or a quantitatively faithful data visualization. The model changed local gas structure while broadly retaining the four source panels' appearance. Source markers, calibration bars, and labels were removed from this derivative. The website's image alternative text identifies it as an artistic rendering. At the user's request, the visible caption and original-figure download link were subsequently removed; the untouched scientific figure remains in the repository. The original source, its colors, numerical labels, and scale bars are preserved. No website palette, portrait, or background-interaction changes were made.
 
 ## Exact generation prompt
 
